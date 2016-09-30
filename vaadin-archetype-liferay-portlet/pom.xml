@@ -5,12 +5,11 @@
 
     <parent>
         <groupId>com.vaadin</groupId>
-        <artifactId>vaadin-parent</artifactId>
-        <version>1.0.0</version>
+        <artifactId>vaadin-archetypes</artifactId>
+        <version>7.7-SNAPSHOT</version>
     </parent>
     <groupId>com.vaadin</groupId>
     <artifactId>vaadin-archetype-liferay-portlet</artifactId>
-    <version>7.7-SNAPSHOT</version>
 
     <packaging>maven-archetype</packaging>
     <organization>

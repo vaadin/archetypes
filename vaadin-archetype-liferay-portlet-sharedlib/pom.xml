@@ -3,14 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.vaadin</groupId>
-		<artifactId>vaadin-parent</artifactId>
-		<version>1.0.0</version>
+		<artifactId>vaadin-archetypes</artifactId>
+		<version>7.7-SNAPSHOT</version>
 	</parent>
 	<name>Vaadin 7 Liferay 6 archetype</name>
 
 	<groupId>com.vaadin</groupId>
 	<artifactId>vaadin-archetype-liferay-portlet-sharedlib</artifactId>
-	<version>7.7-SNAPSHOT</version>
 
 	<description>This archetype generates a Vaadin 7 Liferay portlet 
         for portals with Vaadin jars and static resources (widgetset, theme, etc.)
