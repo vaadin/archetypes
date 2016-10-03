@@ -29,7 +29,6 @@
     <module>vaadin-archetype-jee-application</module>
     <module>vaadin-archetype-liferay-portlet</module>
     <module>vaadin-archetype-liferay-portlet-sharedlib</module>
-    <module>vaadin-archetype-touchkit</module>
     <module>vaadin-archetype-widget</module>
   </modules>
   <licenses>
