@@ -7,7 +7,7 @@
 
 	<requiredProperties>
 		<requiredProperty key="liferayVersion">
-			<defaultValue>[6.1.0,)</defaultValue>
+			<defaultValue>[6.2.0-ga1,)</defaultValue>
 		</requiredProperty>
 		<requiredProperty key="uiClassName">
 			<defaultValue>MyPortletUI</defaultValue>
@@ -23,7 +23,7 @@
 			<defaultValue>Hello World</defaultValue>
 		</requiredProperty>
 		<requiredProperty key="portletKeywords">
-			<defaultValue>Vaadin 7</defaultValue>
+			<defaultValue>Vaadin 8</defaultValue>
 		</requiredProperty>
 		<requiredProperty key="portletDescription">
 			<defaultValue>Write a short description about your portlet.</defaultValue>
