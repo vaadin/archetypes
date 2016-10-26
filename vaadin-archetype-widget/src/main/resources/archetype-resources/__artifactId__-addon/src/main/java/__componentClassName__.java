@@ -12,27 +12,10 @@ public class ${componentClassName} extends com.vaadin.ui.AbstractComponent {
 
     private int clickCount = 0;
 
-    // To process events from the client, we implement ServerRpc
-    private ${componentClassName}ServerRpc rpc = new ${componentClassName}ServerRpc() {
-
-        // Event received from client - user clicked our widget
-        public void clicked(MouseEventDetails mouseDetails) {
-            
-            // Send nag message every 5:th click with ClientRpc
-            if (++clickCount % 5 == 0) {
-                getRpcProxy(${componentClassName}ClientRpc.class)
-                        .alert("Ok, that's enough!");
-            }
-            
-            // Update shared state. This state update is automatically 
-            // sent to the client. 
-            getState().text = "You have clicked " + clickCount + " times";
-        }
-    };
-
     public ${componentClassName}() {
 
         // To receive events from the client, we register ServerRpc
+        ${componentClassName}ServerRpc rpc = this::handleClick;
         registerRpc(rpc);
     }
 
@@ -40,5 +23,17 @@ public class ${componentClassName} extends com.vaadin.ui.AbstractComponent {
     @Override
     protected ${componentClassName}State getState() {
         return (${componentClassName}State) super.getState();
+    }
+    
+    private void handleClick(MouseEventDetails mouseDetails){
+        // Send nag message every 5:th click with ClientRpc
+        if (++clickCount % 5 == 0) {
+            getRpcProxy(${componentClassName}ClientRpc.class)
+                    .alert("Ok, that's enough!");
+        }
+        
+        // Update shared state. This state update is automatically 
+        // sent to the client. 
+        getState().text = "You have clicked " + clickCount + " times";
     }
 }

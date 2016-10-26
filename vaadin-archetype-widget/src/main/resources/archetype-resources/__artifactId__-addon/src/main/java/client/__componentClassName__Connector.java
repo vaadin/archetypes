@@ -27,15 +27,10 @@ public class ${componentClassName}Connector extends AbstractComponentConnector {
     public ${componentClassName}Connector() {
         
         // To receive RPC events from server, we register ClientRpc implementation 
-        registerRpc(${componentClassName}ClientRpc.class, new ${componentClassName}ClientRpc() {
-            public void alert(String message) {
-                Window.alert(message);
-            }
-        });
+        registerRpc(${componentClassName}ClientRpc.class, Window::alert);
 
         // We choose listed for mouse clicks for the widget
-        getWidget().addClickHandler(new ClickHandler() {
-            public void onClick(ClickEvent event) {
+        getWidget().addClickHandler(event -> {
                 final MouseEventDetails mouseDetails = MouseEventDetailsBuilder
                         .buildMouseEventDetails(event.getNativeEvent(),
                                 getWidget().getElement());
@@ -43,7 +38,7 @@ public class ${componentClassName}Connector extends AbstractComponentConnector {
                 // When the widget is clicked, the event is sent to server with ServerRpc
                 rpc.clicked(mouseDetails);
             }
-        });
+        );
 
     }
 
