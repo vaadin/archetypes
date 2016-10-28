@@ -10,8 +10,8 @@ import ${package}.samples.backend.DataService;
 import ${package}.samples.backend.data.Product;
 
 import com.vaadin.v7.event.FieldEvents;
-import com.vaadin.event.SelectionEvent;
-import com.vaadin.event.SelectionEvent.SelectionListener;
+import com.vaadin.v7.event.SelectionEvent;
+import com.vaadin.v7.event.SelectionEvent.SelectionListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FontAwesome;
@@ -80,7 +80,6 @@ public class SampleCrudView extends CssLayout implements View {
         filter.setStyleName("filter-textfield");
         filter.setPlaceholder("Filter");
         ResetButtonForTextField.extend(filter);
-        filter.setImmediate(true);
         filter.addValueChangeListener(event -> {
                 grid.setFilter(filter.getValue());
         });

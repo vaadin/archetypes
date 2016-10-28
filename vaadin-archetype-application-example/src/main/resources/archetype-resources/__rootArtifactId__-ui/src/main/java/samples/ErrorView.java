@@ -7,7 +7,7 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.v7.ui.Label;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.themes.Reindeer;
+import com.vaadin.v7.ui.themes.Reindeer;
 
 /**
  * View shown when trying to navigate to a view that does not exist using
