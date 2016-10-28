@@ -1,0 +1,22 @@
+# Eclipse
+.classpath
+.project
+.settings
+
+# IntelliJ IDEA
+*.iml
+.idea
+
+
+# Mac
+*.DS_Store
+
+# build result folders
+target/
+vaadin-archetype-application/target/
+vaadin-archetype-application-example/target/
+vaadin-archetype-application-multimodule/target/
+vaadin-archetype-jee-application/target/
+vaadin-archetype-liferay-portlet/target/
+vaadin-archetype-liferay-portlet-sharedlib/target/
+vaadin-archetype-widget/target/
