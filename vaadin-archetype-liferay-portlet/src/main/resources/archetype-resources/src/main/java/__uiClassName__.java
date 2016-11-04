@@ -16,7 +16,6 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.WrappedPortletSession;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -37,8 +36,7 @@ public class ${uiClassName} extends UI {
         setContent(layout);
 
         final Button button = new Button("Click Me");
-        button.addClickListener(new Button.ClickListener() {
-            public void buttonClick(ClickEvent event) {
+        button.addClickListener(event -> {
                 layout.addComponent(new Label(
                         "Hello, World!<br>This is portlet "
                                 + portletContextName
@@ -48,7 +46,7 @@ public class ${uiClassName} extends UI {
                         ContentMode.HTML));
 
             }
-        });
+        );
         layout.addComponent(button);
     }
 

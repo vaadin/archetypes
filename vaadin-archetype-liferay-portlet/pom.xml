@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <name>Vaadin 7.2 Liferay 6.2-GA2 archetype</name>
+    <name>Vaadin 8.0 Liferay 6.2-GA1 archetype</name>
 
     <parent>
         <groupId>com.vaadin</groupId>
@@ -19,7 +19,7 @@
     <url>http://vaadin.com</url>
     <inceptionYear>2014</inceptionYear>
     <description>
-        This archetype generates a self-contained Vaadin 7 Liferay portlet.
+        This archetype generates a self-contained Vaadin 8 Liferay portlet.
         It packages all Vaadin static resources (widgetset, theme etc.)
         and doesn't make use of portal-provided resources.
 
