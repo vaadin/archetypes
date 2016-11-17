@@ -16,7 +16,7 @@
         <!-- Versions for these are configured in the parent POM -->
         <dependency>
             <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-compatibility-client</artifactId>
+            <artifactId>vaadin-client</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

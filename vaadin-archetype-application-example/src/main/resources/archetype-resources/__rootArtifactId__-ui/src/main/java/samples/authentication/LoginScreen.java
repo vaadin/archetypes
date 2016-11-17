@@ -7,16 +7,16 @@ import java.io.Serializable;
 
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.Page;
-import com.vaadin.v7.shared.ui.label.ContentMode;
+import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.FormLayout;
-import com.vaadin.v7.ui.Label;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
-import com.vaadin.v7.ui.PasswordField;
-import com.vaadin.v7.ui.TextField;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 
@@ -110,6 +110,7 @@ public class LoginScreen extends CssLayout {
                 "<h1>Login Information</h1>"
                         + "Log in as &quot;admin&quot; to have full access. Log in with any other username to have read-only access. For all users, any password is fine",
                 ContentMode.HTML);
+        loginInfoText.setSizeFull();
         loginInformation.addComponent(loginInfoText);
         return loginInformation;
     }

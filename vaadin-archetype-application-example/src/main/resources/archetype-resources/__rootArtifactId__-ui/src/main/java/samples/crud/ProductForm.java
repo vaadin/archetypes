@@ -3,26 +3,22 @@
 #set( $symbol_escape = '\' )
 package ${package}.samples.crud;
 
+import java.lang.reflect.InvocationTargetException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Collection;
+import java.util.Locale;
 
-import ${package}.samples.backend.DataService;
+import org.apache.commons.beanutils.BeanUtils;
 import ${package}.samples.backend.data.Availability;
 import ${package}.samples.backend.data.Category;
 import ${package}.samples.backend.data.Product;
 
-import com.vaadin.v7.data.Property.ValueChangeEvent;
-import com.vaadin.v7.data.Property.ValueChangeListener;
-import com.vaadin.v7.data.fieldgroup.BeanFieldGroup;
-import com.vaadin.v7.data.fieldgroup.FieldGroup.CommitEvent;
-import com.vaadin.v7.data.fieldgroup.FieldGroup.CommitException;
-import com.vaadin.v7.data.fieldgroup.FieldGroup.CommitHandler;
-import com.vaadin.v7.data.util.BeanItem;
+import com.vaadin.data.BeanBinder;
+import com.vaadin.data.Result;
+import com.vaadin.data.util.converter.StringToIntegerConverter;
+import com.vaadin.data.util.converter.ValueContext;
 import com.vaadin.server.Page;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
-import com.vaadin.v7.ui.Field;
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.Notification.Type;
 
 /**
  * A form for editing a single product.
@@ -34,95 +30,80 @@ import com.vaadin.ui.Notification.Type;
 public class ProductForm extends ProductFormDesign {
 
     private SampleCrudLogic viewLogic;
-    private BeanFieldGroup<Product> fieldGroup;
+    private BeanBinder<Product> beanBinder;
+
+    private static class StockPriceConverter extends StringToIntegerConverter {
+
+        public StockPriceConverter() {
+            super("Could not convert value to " + Integer.class.getName());
+        }
+
+        @Override
+        protected NumberFormat getFormat(Locale locale) {
+            // do not use a thousands separator, as HTML5 input type
+            // number expects a fixed wire/DOM number format regardless
+            // of how the browser presents it to the user (which could
+            // depend on the browser locale)
+            DecimalFormat format = new DecimalFormat();
+            format.setMaximumFractionDigits(0);
+            format.setDecimalSeparatorAlwaysShown(false);
+            format.setParseIntegerOnly(true);
+            format.setGroupingUsed(false);
+            return format;
+        }
+
+        @Override
+        public Result<Integer> convertToModel(String value,
+                ValueContext context) {
+            Result<Integer> result = super.convertToModel(value, context);
+            return result.map(stock -> stock == null ? 0 : stock);
+        }
+
+    }
 
     public ProductForm(SampleCrudLogic sampleCrudLogic) {
         super();
         addStyleName("product-form");
         viewLogic = sampleCrudLogic;
 
-        price.setConverter(new EuroConverter());
+        availability.setItems(Availability.values());
+        availability.setEmptySelectionAllowed(false);
 
-        for (Availability s : Availability.values()) {
-            availability.addItem(s);
-        }
+        beanBinder = new BeanBinder<>(Product.class);
+        beanBinder.forField(price).withConverter(new EuroConverter())
+                .bind("price");
+        beanBinder.forField(stockCount).withConverter(new StockPriceConverter())
+                .bind("stockCount");
 
-        fieldGroup = new BeanFieldGroup<Product>(Product.class);
-        fieldGroup.bindMemberFields(this);
+        category.setItemCaptionGenerator(Category::getName);
+        beanBinder.forField(category).bind("category");
+        beanBinder.bindInstanceFields(this);
 
-        // perform validation and enable/disable buttons while editing
-        ValueChangeListener valueListener = new ValueChangeListener() {
-            @Override
-            public void valueChange(ValueChangeEvent event) {
-                formHasChanged();
-            }
-        };
-        for (Field f : fieldGroup.getFields()) {
-            f.addValueChangeListener(valueListener);
-        }
-
-        fieldGroup.addCommitHandler(new CommitHandler() {
-
-            @Override
-            public void preCommit(CommitEvent commitEvent)
-                    throws CommitException {
-            }
-
-            @Override
-            public void postCommit(CommitEvent commitEvent)
-                    throws CommitException {
-                DataService.get().updateProduct(
-                        fieldGroup.getItemDataSource().getBean());
-            }
+        // enable/disable save button while editing
+        beanBinder.addStatusChangeListener(event -> {
+            boolean isValid = !event.hasValidationErrors();
+            boolean hasChanges = beanBinder.hasChanges();
+            save.setEnabled(hasChanges && isValid);
         });
 
-        save.addClickListener(new ClickListener() {
-            @Override
-            public void buttonClick(ClickEvent event) {
-                try {
-                    fieldGroup.commit();
+        save.addClickListener(click -> beanBinder.getBean()
+                .ifPresent(product -> viewLogic.saveProduct(product)));
 
-                    // only if validation succeeds
-                    Product product = fieldGroup.getItemDataSource().getBean();
-                    viewLogic.saveProduct(product);
-                } catch (CommitException e) {
-                    Notification n = new Notification(
-                            "Please re-check the fields", Type.ERROR_MESSAGE);
-                    n.setDelayMsec(500);
-                    n.show(getUI().getPage());
-                }
-            }
-        });
+        cancel.addClickListener(click -> viewLogic.cancelProduct());
 
-        cancel.addClickListener(new ClickListener() {
-            @Override
-            public void buttonClick(ClickEvent event) {
-                viewLogic.cancelProduct();
-            }
-        });
-
-        delete.addClickListener(new ClickListener() {
-            @Override
-            public void buttonClick(ClickEvent event) {
-                Product product = fieldGroup.getItemDataSource().getBean();
-                viewLogic.deleteProduct(product);
-            }
-        });
+        delete.addClickListener(click -> beanBinder.getBean()
+                .ifPresent(viewLogic::deleteProduct));
     }
 
     public void setCategories(Collection<Category> categories) {
-        category.setOptions(categories);
+        category.setItems(categories);
     }
 
     public void editProduct(Product product) {
         if (product == null) {
             product = new Product();
         }
-        fieldGroup.setItemDataSource(new BeanItem<Product>(product));
-
-        // before the user makes any changes, disable validation error indicator
-        // of the product name field (which may be empty)
-        productName.setValidationVisible(false);
+        beanBinder.setBean(cloneProduct(product));
 
         // Scroll to the top
         // As this is not a Panel, using JavaScript
@@ -131,17 +112,14 @@ public class ProductForm extends ProductFormDesign {
         Page.getCurrent().getJavaScript().execute(scrollScript);
     }
 
-    private void formHasChanged() {
-        // show validation errors after the user has changed something
-        productName.setValidationVisible(true);
-
-        // only products that have been saved should be removable
-        boolean canRemoveProduct = false;
-        BeanItem<Product> item = fieldGroup.getItemDataSource();
-        if (item != null) {
-            Product product = item.getBean();
-            canRemoveProduct = product.getId() != -1;
+    private Product cloneProduct(Product product) {
+        Product clone;
+        try {
+            clone = (Product) BeanUtils.cloneBean(product);
+        } catch (IllegalAccessException | InstantiationException
+                | InvocationTargetException | NoSuchMethodException e) {
+            throw new RuntimeException("Failed to clone a product bean");
         }
-        delete.setEnabled(canRemoveProduct);
+        return clone;
     }
 }
