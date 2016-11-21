@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.samples.crud;
 
+import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Stream;
 
@@ -26,7 +27,11 @@ public class ProductDataProvider extends AbstractDataProvider<Product> {
         if (Objects.equals(this.filterText, filterText)) {
             return;
         }
-        this.filterText = filterText;
+        if (filterText != null) {
+            this.filterText = filterText.toLowerCase(Locale.ENGLISH);
+        } else {
+            this.filterText = null;
+        }
         refreshAll();
     }
 
@@ -74,7 +79,7 @@ public class ProductDataProvider extends AbstractDataProvider<Product> {
     }
 
     private boolean passesFilter(Object object) {
-        return object != null
-                && object.toString().toLowerCase().contains(filterText);
+        return object != null && object.toString().toLowerCase(Locale.ENGLISH)
+                .contains(filterText);
     }
 }

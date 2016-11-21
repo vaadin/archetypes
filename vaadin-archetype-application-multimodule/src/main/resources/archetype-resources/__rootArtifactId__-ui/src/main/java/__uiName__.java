@@ -10,8 +10,8 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.server.data.BackEndDataSource;
-import com.vaadin.server.data.DataSource;
+import com.vaadin.server.data.BackEndDataProvider;
+import com.vaadin.server.data.DataProvider;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.TextField;
@@ -25,7 +25,7 @@ import com.vaadin.ui.VerticalLayout;
 public class ${uiName} extends UI {
 
     private CrudService<Person> service = new CrudService<>();
-    private DataSource<Person> dataSource = new BackEndDataSource<>(
+    private DataProvider<Person> dataProvider = new BackEndDataProvider<>(
                     query -> service.findAll().stream(),
                     query -> service.findAll().size());
 
@@ -38,12 +38,12 @@ public class ${uiName} extends UI {
         final Button button = new Button("Click Me");
         button.addClickListener(e -> {
             service.save(new Person(name.getValue()));
-            dataSource.refreshAll();
+            dataProvider.refreshAll();
         });
 
         final Grid<Person> grid = new Grid<>();
         grid.addColumn("Name", Person::getName);
-        grid.setDataSource(dataSource);
+        grid.setDataProvider(dataProvider);
         grid.setSizeFull();
 
         // This is a component from the ${rootArtifactId}-addon module

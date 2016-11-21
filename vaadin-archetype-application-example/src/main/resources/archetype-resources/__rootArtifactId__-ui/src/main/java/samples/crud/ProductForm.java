@@ -9,7 +9,7 @@ import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.Locale;
 
-import org.apache.commons.beanutils.BeanUtils;
+import ${package}.samples.AttributeExtension;
 import ${package}.samples.backend.data.Availability;
 import ${package}.samples.backend.data.Category;
 import ${package}.samples.backend.data.Product;
@@ -31,6 +31,7 @@ public class ProductForm extends ProductFormDesign {
 
     private SampleCrudLogic viewLogic;
     private BeanBinder<Product> beanBinder;
+    private Product currentProduct;
 
     private static class StockPriceConverter extends StringToIntegerConverter {
 
@@ -66,6 +67,12 @@ public class ProductForm extends ProductFormDesign {
         addStyleName("product-form");
         viewLogic = sampleCrudLogic;
 
+        // Mark the stock count field as numeric.
+        // This affects the virtual keyboard shown on mobile devices.
+        AttributeExtension ae = new AttributeExtension();
+        ae.extend(stockCount);
+        ae.setAttribute("type", "number");
+
         availability.setItems(Availability.values());
         availability.setEmptySelectionAllowed(false);
 
@@ -86,13 +93,20 @@ public class ProductForm extends ProductFormDesign {
             save.setEnabled(hasChanges && isValid);
         });
 
-        save.addClickListener(click -> beanBinder.getBean()
-                .ifPresent(product -> viewLogic.saveProduct(product)));
+        save.addClickListener(click -> {
+            if (currentProduct != null
+                    && beanBinder.writeBeanIfValid(currentProduct)) {
+                viewLogic.saveProduct(currentProduct);
+            }
+        });
 
         cancel.addClickListener(click -> viewLogic.cancelProduct());
 
-        delete.addClickListener(click -> beanBinder.getBean()
-                .ifPresent(viewLogic::deleteProduct));
+        delete.addClickListener(click -> {
+            if (currentProduct != null) {
+                viewLogic.deleteProduct(currentProduct);
+            }
+        });
     }
 
     public void setCategories(Collection<Category> categories) {
@@ -103,23 +117,13 @@ public class ProductForm extends ProductFormDesign {
         if (product == null) {
             product = new Product();
         }
-        beanBinder.setBean(cloneProduct(product));
+        currentProduct = product;
+        beanBinder.readBean(product);
 
         // Scroll to the top
         // As this is not a Panel, using JavaScript
         String scrollScript = "window.document.getElementById('" + getId()
                 + "').scrollTop = 0;";
         Page.getCurrent().getJavaScript().execute(scrollScript);
-    }
-
-    private Product cloneProduct(Product product) {
-        Product clone;
-        try {
-            clone = (Product) BeanUtils.cloneBean(product);
-        } catch (IllegalAccessException | InstantiationException
-                | InvocationTargetException | NoSuchMethodException e) {
-            throw new RuntimeException("Failed to clone a product bean");
-        }
-        return clone;
     }
 }
