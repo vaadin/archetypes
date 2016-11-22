@@ -69,9 +69,9 @@ public class ProductForm extends ProductFormDesign {
 
         // Mark the stock count field as numeric.
         // This affects the virtual keyboard shown on mobile devices.
-        AttributeExtension ae = new AttributeExtension();
-        ae.extend(stockCount);
-        ae.setAttribute("type", "number");
+        AttributeExtension stockFieldExtension = new AttributeExtension();
+        stockFieldExtension.extend(stockCount);
+        stockFieldExtension.setAttribute("type", "number");
 
         availability.setItems(Availability.values());
         availability.setEmptySelectionAllowed(false);
@@ -91,6 +91,7 @@ public class ProductForm extends ProductFormDesign {
             boolean isValid = !event.hasValidationErrors();
             boolean hasChanges = beanBinder.hasChanges();
             save.setEnabled(hasChanges && isValid);
+            discard.setEnabled(hasChanges);
         });
 
         save.addClickListener(click -> {
@@ -99,6 +100,9 @@ public class ProductForm extends ProductFormDesign {
                 viewLogic.saveProduct(currentProduct);
             }
         });
+
+        discard.addClickListener(
+                event -> viewLogic.editProduct(currentProduct));
 
         cancel.addClickListener(click -> viewLogic.cancelProduct());
 

@@ -73,12 +73,18 @@ public class ProductGrid extends Grid<Product> {
         String text = availability.toString();
 
         String color = "";
-        if (availability == Availability.AVAILABLE) {
+        switch (availability) {
+        case AVAILABLE:
             color = "#2dd085";
-        } else if (availability == Availability.COMING) {
+            break;
+        case COMING:
             color = "#ffc66e";
-        } else if (availability == Availability.DISCONTINUED) {
+            break;
+        case DISCONTINUED:
             color = "#f54993";
+            break;
+        default:
+            break;
         }
 
         String iconCode = "<span class=\"v-icon\" style=\"font-family: "
