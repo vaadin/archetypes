@@ -13,7 +13,7 @@ import ${package}.samples.backend.data.Product;
 import com.vaadin.server.data.AbstractDataProvider;
 import com.vaadin.server.data.Query;
 
-public class ProductDataProvider extends AbstractDataProvider<Product> {
+public class ProductDataProvider extends AbstractDataProvider<Product, String> {
 
     private String filterText;
 

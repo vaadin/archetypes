@@ -94,7 +94,7 @@ public class ProductForm extends ProductFormDesign {
             discard.setEnabled(hasChanges);
         });
 
-        save.addClickListener(click -> {
+        save.addClickListener(event -> {
             if (currentProduct != null
                     && beanBinder.writeBeanIfValid(currentProduct)) {
                 viewLogic.saveProduct(currentProduct);
@@ -104,9 +104,9 @@ public class ProductForm extends ProductFormDesign {
         discard.addClickListener(
                 event -> viewLogic.editProduct(currentProduct));
 
-        cancel.addClickListener(click -> viewLogic.cancelProduct());
+        cancel.addClickListener(event -> viewLogic.cancelProduct());
 
-        delete.addClickListener(click -> {
+        delete.addClickListener(event -> {
             if (currentProduct != null) {
                 viewLogic.deleteProduct(currentProduct);
             }

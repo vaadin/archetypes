@@ -25,7 +25,7 @@ import com.vaadin.ui.VerticalLayout;
 public class ${uiName} extends UI {
 
     private CrudService<Person> service = new CrudService<>();
-    private DataProvider<Person> dataProvider = new BackEndDataProvider<>(
+    private DataProvider<Person, String> dataProvider = new BackEndDataProvider<>(
                     query -> service.findAll().stream(),
                     query -> service.findAll().size());
 
