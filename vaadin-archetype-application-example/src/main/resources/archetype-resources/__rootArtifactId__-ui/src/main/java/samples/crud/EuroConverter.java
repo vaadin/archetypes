@@ -8,7 +8,9 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import com.vaadin.v7.data.util.converter.StringToBigDecimalConverter;
+import com.vaadin.data.Result;
+import com.vaadin.data.util.converter.StringToBigDecimalConverter;
+import com.vaadin.data.util.converter.ValueContext;
 
 /**
  * A converter that adds/removes the euro sign and formats currencies with two
@@ -16,15 +18,18 @@ import com.vaadin.v7.data.util.converter.StringToBigDecimalConverter;
  */
 public class EuroConverter extends StringToBigDecimalConverter {
 
+    public EuroConverter() {
+        super("Cannot convert value to a number");
+    }
+
     @Override
-    public BigDecimal convertToModel(String value,
-            Class<? extends BigDecimal> targetType, Locale locale)
-            throws com.vaadin.v7.data.util.converter.Converter.ConversionException {
+    public Result<BigDecimal> convertToModel(String value,
+            ValueContext context) {
         value = value.replaceAll("[€${symbol_escape}${symbol_escape}s]", "").trim();
         if ("".equals(value)) {
             value = "0";
         }
-        return super.convertToModel(value, targetType, locale);
+        return super.convertToModel(value, context);
     }
 
     @Override
@@ -40,8 +45,7 @@ public class EuroConverter extends StringToBigDecimalConverter {
 
     @Override
     public String convertToPresentation(BigDecimal value,
-            Class<? extends String> targetType, Locale locale)
-            throws com.vaadin.v7.data.util.converter.Converter.ConversionException {
-        return super.convertToPresentation(value, targetType, locale) + " €";
+            ValueContext context) {
+        return super.convertToPresentation(value, context) + " €";
     }
 }

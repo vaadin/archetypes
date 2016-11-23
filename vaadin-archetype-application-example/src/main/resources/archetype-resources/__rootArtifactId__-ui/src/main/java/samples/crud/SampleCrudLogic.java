@@ -33,14 +33,11 @@ public class SampleCrudLogic implements Serializable {
         if (!${uiName}.get().getAccessControl().isUserInRole("admin")) {
             view.setNewProductEnabled(false);
         }
-
-        view.showProducts(DataService.get().getAllProducts());
     }
 
     public void cancelProduct() {
         setFragmentParameter("");
         view.clearSelection();
-        view.editProduct(null);
     }
 
     /**
@@ -55,8 +52,9 @@ public class SampleCrudLogic implements Serializable {
         }
 
         Page page = ${uiName}.get().getPage();
-        page.setUriFragment("!" + SampleCrudView.VIEW_NAME + "/"
-                + fragmentParameter, false);
+        page.setUriFragment(
+                "!" + SampleCrudView.VIEW_NAME + "/" + fragmentParameter,
+                false);
     }
 
     public void enter(String productId) {
@@ -84,18 +82,14 @@ public class SampleCrudLogic implements Serializable {
         view.showSaveNotification(product.getProductName() + " ("
                 + product.getId() + ") updated");
         view.clearSelection();
-        view.editProduct(null);
-        view.refreshProduct(product);
+        view.updateProduct(product);
         setFragmentParameter("");
     }
 
     public void deleteProduct(Product product) {
-        DataService.get().deleteProduct(product.getId());
         view.showSaveNotification(product.getProductName() + " ("
                 + product.getId() + ") removed");
-
         view.clearSelection();
-        view.editProduct(null);
         view.removeProduct(product);
         setFragmentParameter("");
     }

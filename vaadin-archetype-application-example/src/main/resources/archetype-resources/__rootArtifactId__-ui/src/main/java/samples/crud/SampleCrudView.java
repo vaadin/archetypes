@@ -3,24 +3,16 @@
 #set( $symbol_escape = '\' )
 package ${package}.samples.crud;
 
-import java.util.Collection;
-
 import ${package}.samples.ResetButtonForTextField;
 import ${package}.samples.backend.DataService;
 import ${package}.samples.backend.data.Product;
 
-import com.vaadin.v7.event.FieldEvents;
-import com.vaadin.v7.event.SelectionEvent;
-import com.vaadin.v7.event.SelectionEvent.SelectionListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.CssLayout;
-import com.vaadin.v7.ui.Grid.SelectionModel;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
@@ -43,19 +35,17 @@ public class SampleCrudView extends CssLayout implements View {
     private SampleCrudLogic viewLogic = new SampleCrudLogic(this);
     private Button newProduct;
 
+    private ProductDataProvider dataProvider = new ProductDataProvider();
+
     public SampleCrudView() {
         setSizeFull();
         addStyleName("crud-view");
         HorizontalLayout topLayout = createTopBar();
 
         grid = new ProductGrid();
-        grid.addSelectionListener(new SelectionListener() {
-
-            @Override
-            public void select(SelectionEvent event) {
-                viewLogic.rowSelected(grid.getSelectedRow());
-            }
-        });
+        grid.setDataProvider(dataProvider);
+        grid.asSingleSelect().addValueChangeListener(
+                event -> viewLogic.rowSelected(event.getValue()));
 
         form = new ProductForm(viewLogic);
         form.setCategories(DataService.get().getAllCategories());
@@ -78,21 +68,15 @@ public class SampleCrudView extends CssLayout implements View {
     public HorizontalLayout createTopBar() {
         TextField filter = new TextField();
         filter.setStyleName("filter-textfield");
-        filter.setPlaceholder("Filter");
+        filter.setPlaceholder("Filter name, availability or category");
         ResetButtonForTextField.extend(filter);
-        filter.addValueChangeListener(event -> {
-                grid.setFilter(filter.getValue());
-        });
+        filter.addValueChangeListener(
+                event -> dataProvider.setFilterText(event.getValue()));
 
         newProduct = new Button("New product");
         newProduct.addStyleName(ValoTheme.BUTTON_PRIMARY);
         newProduct.setIcon(FontAwesome.PLUS_CIRCLE);
-        newProduct.addClickListener(new ClickListener() {
-            @Override
-            public void buttonClick(ClickEvent event) {
-                viewLogic.newProduct();
-            }
-        });
+        newProduct.addClickListener(click -> viewLogic.newProduct());
 
         HorizontalLayout topLayout = new HorizontalLayout();
         topLayout.setSpacing(true);
@@ -123,15 +107,24 @@ public class SampleCrudView extends CssLayout implements View {
     }
 
     public void clearSelection() {
-        grid.getSelectionModel().reset();
+        grid.getSelectionModel().deselectAll();
     }
 
     public void selectRow(Product row) {
-        ((SelectionModel.Single) grid.getSelectionModel()).select(row);
+        grid.getSelectionModel().select(row);
     }
 
     public Product getSelectedRow() {
         return grid.getSelectedRow();
+    }
+    
+    public void updateProduct(Product product) {
+        dataProvider.save(product);
+        // FIXME: Grid used to scroll to the updated item
+    }
+
+    public void removeProduct(Product product) {
+        dataProvider.delete(product);
     }
 
     public void editProduct(Product product) {
@@ -144,18 +137,4 @@ public class SampleCrudView extends CssLayout implements View {
         }
         form.editProduct(product);
     }
-
-    public void showProducts(Collection<Product> products) {
-        grid.setProducts(products);
-    }
-
-    public void refreshProduct(Product product) {
-        grid.refresh(product);
-        grid.scrollTo(product);
-    }
-
-    public void removeProduct(Product product) {
-        grid.remove(product);
-    }
-
 }

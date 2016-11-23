@@ -5,9 +5,9 @@ package ${package}.samples;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
-import com.vaadin.v7.ui.Label;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.v7.ui.themes.Reindeer;
+import com.vaadin.ui.themes.ValoTheme;
 
 /**
  * View shown when trying to navigate to a view that does not exist using
@@ -24,7 +24,7 @@ public class ErrorView extends VerticalLayout implements View {
         setSpacing(true);
 
         Label header = new Label("The view could not be found");
-        header.addStyleName(Reindeer.LABEL_H1);
+        header.addStyleName(ValoTheme.LABEL_H1);
         addComponent(header);
         addComponent(explanation = new Label());
     }

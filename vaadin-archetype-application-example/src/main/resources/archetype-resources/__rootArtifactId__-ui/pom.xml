@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-compatibility-server</artifactId>
+            <artifactId>vaadin-server</artifactId>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -34,7 +34,7 @@
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-compatibility-themes</artifactId>
+            <artifactId>vaadin-themes</artifactId>
         </dependency>
 
         <dependency>
