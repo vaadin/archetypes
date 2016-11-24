@@ -4,7 +4,7 @@
 package ${package}.samples.crud;
 
 import java.util.Locale;
-import java.util.Objects;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import ${package}.samples.backend.DataService;
@@ -13,27 +13,8 @@ import ${package}.samples.backend.data.Product;
 import com.vaadin.server.data.AbstractDataProvider;
 import com.vaadin.server.data.Query;
 
-public class ProductDataProvider extends AbstractDataProvider<Product, String> {
-
-    private String filterText;
-
-    /**
-     * Sets the filtering text for this DataProvider.
-     * 
-     * @param filterText
-     *            the filtering text
-     */
-    public void setFilterText(String filterText) {
-        if (Objects.equals(this.filterText, filterText)) {
-            return;
-        }
-        if (filterText != null) {
-            this.filterText = filterText.toLowerCase(Locale.ENGLISH);
-        } else {
-            this.filterText = null;
-        }
-        refreshAll();
-    }
+public class ProductDataProvider
+        extends AbstractDataProvider<Product, Supplier<String>> {
 
     /**
      * Store given product to the backing data service.
@@ -63,22 +44,23 @@ public class ProductDataProvider extends AbstractDataProvider<Product, String> {
     }
 
     @Override
-    public int size(Query t) {
+    public int size(Query<Supplier<String>> t) {
         return (int) fetch(t).count();
     }
 
     @Override
-    public Stream<Product> fetch(Query query) {
+    public Stream<Product> fetch(Query<Supplier<String>> query) {
+        String filterText = query.getFilter().map(Supplier::get).orElse(null);
         if (filterText == null || filterText.isEmpty()) {
             return DataService.get().getAllProducts().stream();
         }
-        return DataService.get().getAllProducts().stream()
-                .filter(product -> passesFilter(product.getProductName())
-                        || passesFilter(product.getAvailability())
-                        || passesFilter(product.getCategory()));
+        return DataService.get().getAllProducts().stream().filter(
+                product -> passesFilter(product.getProductName(), filterText)
+                        || passesFilter(product.getAvailability(), filterText)
+                        || passesFilter(product.getCategory(), filterText));
     }
 
-    private boolean passesFilter(Object object) {
+    private boolean passesFilter(Object object, String filterText) {
         return object != null && object.toString().toLowerCase(Locale.ENGLISH)
                 .contains(filterText);
     }
