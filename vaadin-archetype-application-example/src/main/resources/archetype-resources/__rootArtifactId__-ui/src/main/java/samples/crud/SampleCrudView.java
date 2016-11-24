@@ -31,6 +31,7 @@ public class SampleCrudView extends CssLayout implements View {
     public static final String VIEW_NAME = "Inventory";
     private ProductGrid grid;
     private ProductForm form;
+    private TextField filter;
 
     private SampleCrudLogic viewLogic = new SampleCrudLogic(this);
     private Button newProduct;
@@ -43,7 +44,9 @@ public class SampleCrudView extends CssLayout implements View {
         HorizontalLayout topLayout = createTopBar();
 
         grid = new ProductGrid();
-        grid.setDataProvider(dataProvider);
+        // set a filter that takes into account the current value of the filter
+        // field
+        grid.setDataProvider(dataProvider.setFilter(() -> filter.getValue()));
         grid.asSingleSelect().addValueChangeListener(
                 event -> viewLogic.rowSelected(event.getValue()));
 
@@ -66,12 +69,12 @@ public class SampleCrudView extends CssLayout implements View {
     }
 
     public HorizontalLayout createTopBar() {
-        TextField filter = new TextField();
+        filter = new TextField();
         filter.setStyleName("filter-textfield");
         filter.setPlaceholder("Filter name, availability or category");
         ResetButtonForTextField.extend(filter);
-        filter.addValueChangeListener(
-                event -> dataProvider.setFilterText(event.getValue()));
+        // reapply the filter
+        filter.addValueChangeListener(event -> dataProvider.refreshAll());
 
         newProduct = new Button("New product");
         newProduct.addStyleName(ValoTheme.BUTTON_PRIMARY);
@@ -117,7 +120,7 @@ public class SampleCrudView extends CssLayout implements View {
     public Product getSelectedRow() {
         return grid.getSelectedRow();
     }
-    
+
     public void updateProduct(Product product) {
         dataProvider.save(product);
         // FIXME: Grid used to scroll to the updated item
