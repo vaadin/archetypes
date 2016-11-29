@@ -44,12 +44,12 @@ public class ProductDataProvider
     }
 
     @Override
-    public int size(Query<Supplier<String>> t) {
+    public int size(Query<Product, Supplier<String>> t) {
         return (int) fetch(t).count();
     }
 
     @Override
-    public Stream<Product> fetch(Query<Supplier<String>> query) {
+    public Stream<Product> fetch(Query<Product, Supplier<String>> query) {
         String filterText = query.getFilter().map(Supplier::get).orElse(null);
         if (filterText == null || filterText.isEmpty()) {
             return DataService.get().getAllProducts().stream();
