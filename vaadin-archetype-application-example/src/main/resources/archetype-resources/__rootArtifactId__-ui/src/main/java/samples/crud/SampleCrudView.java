@@ -56,8 +56,6 @@ public class SampleCrudView extends CssLayout implements View {
         VerticalLayout barAndGridLayout = new VerticalLayout();
         barAndGridLayout.addComponent(topLayout);
         barAndGridLayout.addComponent(grid);
-        barAndGridLayout.setMargin(false);
-        barAndGridLayout.setSpacing(false);
         barAndGridLayout.setSizeFull();
         barAndGridLayout.setExpandRatio(grid, 1);
         barAndGridLayout.setStyleName("crud-main-layout");
