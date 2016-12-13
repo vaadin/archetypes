@@ -32,7 +32,7 @@ public class ${uiClassName} extends UI {
         final String portletContextName = getPortletContextName(request);
         final Integer numOfRegisteredUsers = getPortalCountOfRegisteredUsers();
         final VerticalLayout layout = new VerticalLayout();
-        layout.setMargin(true);
+        layout.setSpacing(false);
         setContent(layout);
 
         final Button button = new Button("Click Me");

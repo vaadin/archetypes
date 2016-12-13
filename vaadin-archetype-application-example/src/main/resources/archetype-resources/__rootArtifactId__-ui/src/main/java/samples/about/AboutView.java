@@ -29,6 +29,7 @@ public class AboutView extends VerticalLayout implements View {
                         + Version.getFullVersion(), ContentMode.HTML), "info");
 
         setSizeFull();
+        setMargin(false);
         setStyleName("about-view");
         addComponent(aboutContent);
         setComponentAlignment(aboutContent, Alignment.MIDDLE_CENTER);

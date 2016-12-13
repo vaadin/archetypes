@@ -49,6 +49,8 @@ public class LoginScreen extends CssLayout {
         // - see the theme for how this is made responsive for various screen
         // sizes
         VerticalLayout centeringLayout = new VerticalLayout();
+        centeringLayout.setMargin(false);
+        centeringLayout.setSpacing(false);
         centeringLayout.setStyleName("centering-layout");
         centeringLayout.addComponent(loginForm);
         centeringLayout.setComponentAlignment(loginForm,

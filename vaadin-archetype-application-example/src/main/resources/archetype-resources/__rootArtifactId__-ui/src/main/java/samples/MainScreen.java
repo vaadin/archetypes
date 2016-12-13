@@ -23,6 +23,7 @@ public class MainScreen extends HorizontalLayout {
 
     public MainScreen(${uiName} ui) {
 
+        setSpacing(false);
         setStyleName("main-screen");
 
         CssLayout viewContainer = new CssLayout();
