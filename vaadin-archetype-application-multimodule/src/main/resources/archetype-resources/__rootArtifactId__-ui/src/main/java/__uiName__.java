@@ -50,8 +50,6 @@ public class ${uiName} extends UI {
         //layout.addComponent(new MyComponent());
         layout.addComponents(name, button, grid);
         layout.setSizeFull();
-        layout.setMargin(true);
-        layout.setSpacing(true);
         layout.setExpandRatio(grid, 1.0f);
 
         setContent(layout);

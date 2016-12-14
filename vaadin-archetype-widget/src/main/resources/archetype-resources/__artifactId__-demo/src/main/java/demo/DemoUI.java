@@ -34,6 +34,8 @@ public class DemoUI extends UI
         final VerticalLayout layout = new VerticalLayout();
         layout.setStyleName("demoContentLayout");
         layout.setSizeFull();
+        layout.setMargin(false);
+        layout.setSpacing(false);
         layout.addComponent(component);
         layout.setComponentAlignment(component, Alignment.MIDDLE_CENTER);
         setContent(layout);
