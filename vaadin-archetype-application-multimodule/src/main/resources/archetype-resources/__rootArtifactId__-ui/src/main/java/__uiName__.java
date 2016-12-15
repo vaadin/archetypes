@@ -10,8 +10,8 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.server.data.BackEndDataProvider;
-import com.vaadin.server.data.DataProvider;
+import com.vaadin.data.provider.BackEndDataProvider;
+import com.vaadin.data.provider.DataProvider;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.TextField;
@@ -42,7 +42,7 @@ public class ${uiName} extends UI {
         });
 
         final Grid<Person> grid = new Grid<>();
-        grid.addColumn("Name", Person::getName);
+        grid.addColumn(Person::getName).setCaption("Name");
         grid.setDataProvider(dataProvider);
         grid.setSizeFull();
 
