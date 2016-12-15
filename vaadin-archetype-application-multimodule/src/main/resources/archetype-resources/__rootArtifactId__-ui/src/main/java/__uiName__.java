@@ -42,7 +42,7 @@ public class ${uiName} extends UI {
         });
 
         final Grid<Person> grid = new Grid<>();
-        grid.addColumn("Name", Person::getName);
+        grid.addColumn(Person::getName).setCaption("Name");
         grid.setDataProvider(dataProvider);
         grid.setSizeFull();
 
