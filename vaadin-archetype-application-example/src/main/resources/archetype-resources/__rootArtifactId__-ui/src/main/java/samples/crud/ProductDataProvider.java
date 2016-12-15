@@ -10,8 +10,8 @@ import java.util.stream.Stream;
 import ${package}.samples.backend.DataService;
 import ${package}.samples.backend.data.Product;
 
-import com.vaadin.server.data.AbstractDataProvider;
-import com.vaadin.server.data.Query;
+import com.vaadin.data.provider.AbstractDataProvider;
+import com.vaadin.data.provider.Query;
 
 public class ProductDataProvider
         extends AbstractDataProvider<Product, Supplier<String>> {

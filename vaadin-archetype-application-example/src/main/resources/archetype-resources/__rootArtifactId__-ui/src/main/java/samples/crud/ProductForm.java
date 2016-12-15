@@ -16,8 +16,8 @@ import ${package}.samples.backend.data.Product;
 
 import com.vaadin.data.BeanBinder;
 import com.vaadin.data.Result;
-import com.vaadin.data.util.converter.StringToIntegerConverter;
-import com.vaadin.data.util.converter.ValueContext;
+import com.vaadin.data.converter.StringToIntegerConverter;
+import com.vaadin.data.ValueContext;
 import com.vaadin.server.Page;
 
 /**

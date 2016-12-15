@@ -46,7 +46,7 @@ public class SampleCrudView extends CssLayout implements View {
         grid = new ProductGrid();
         // set a filter that takes into account the current value of the filter
         // field
-        grid.setDataProvider(dataProvider.setFilter(() -> filter.getValue()));
+        grid.setDataProvider(dataProvider.withFilter(() -> filter.getValue()));
         grid.asSingleSelect().addValueChangeListener(
                 event -> viewLogic.rowSelected(event.getValue()));
 
