@@ -37,7 +37,7 @@
 	</organization>
 
 	<scm>
-		<url>git://github.com/mygithubaccount/\${componentClassName}.git</url>
+		<url>https://github.com/mygithubaccount/${componentClassName}</url>
 		<connection>scm:git:git://github.com/mygithubaccount/\${componentClassName}.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com:/mygithubaccount/\${componentClassName}.git</developerConnection>
 		<tag>\${componentClassName} add-on for Vaadin</tag>
