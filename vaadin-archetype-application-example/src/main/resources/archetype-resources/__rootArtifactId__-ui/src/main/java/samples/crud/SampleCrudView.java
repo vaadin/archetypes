@@ -7,9 +7,9 @@ import ${package}.samples.ResetButtonForTextField;
 import ${package}.samples.backend.DataService;
 import ${package}.samples.backend.data.Product;
 
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
@@ -76,7 +76,7 @@ public class SampleCrudView extends CssLayout implements View {
 
         newProduct = new Button("New product");
         newProduct.addStyleName(ValoTheme.BUTTON_PRIMARY);
-        newProduct.setIcon(FontAwesome.PLUS_CIRCLE);
+        newProduct.setIcon(VaadinIcons.PLUS_CIRCLE);
         newProduct.addClickListener(click -> viewLogic.newProduct());
 
         HorizontalLayout topLayout = new HorizontalLayout();
