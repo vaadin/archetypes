@@ -10,7 +10,7 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.data.provider.BackEndDataProvider;
+import com.vaadin.data.provider.CallbackDataProvider;
 import com.vaadin.data.provider.DataProvider;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
@@ -25,7 +25,7 @@ import com.vaadin.ui.VerticalLayout;
 public class ${uiName} extends UI {
 
     private CrudService<Person> service = new CrudService<>();
-    private DataProvider<Person, String> dataProvider = new BackEndDataProvider<>(
+    private DataProvider<Person, String> dataProvider = new CallbackDataProvider<>(
                     query -> service.findAll().stream(),
                     query -> service.findAll().size());
 

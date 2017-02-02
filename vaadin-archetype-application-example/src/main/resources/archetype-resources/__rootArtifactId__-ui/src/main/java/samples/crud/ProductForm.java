@@ -14,7 +14,7 @@ import ${package}.samples.backend.data.Availability;
 import ${package}.samples.backend.data.Category;
 import ${package}.samples.backend.data.Product;
 
-import com.vaadin.data.BeanBinder;
+import com.vaadin.data.Binder;
 import com.vaadin.data.Result;
 import com.vaadin.data.converter.StringToIntegerConverter;
 import com.vaadin.data.ValueContext;
@@ -30,7 +30,7 @@ import com.vaadin.server.Page;
 public class ProductForm extends ProductFormDesign {
 
     private SampleCrudLogic viewLogic;
-    private BeanBinder<Product> beanBinder;
+    private Binder<Product> binder;
     private Product currentProduct;
 
     private static class StockPriceConverter extends StringToIntegerConverter {
@@ -76,27 +76,27 @@ public class ProductForm extends ProductFormDesign {
         availability.setItems(Availability.values());
         availability.setEmptySelectionAllowed(false);
 
-        beanBinder = new BeanBinder<>(Product.class);
-        beanBinder.forField(price).withConverter(new EuroConverter())
+        binder = new Binder<>(Product.class);
+        binder.forField(price).withConverter(new EuroConverter())
                 .bind("price");
-        beanBinder.forField(stockCount).withConverter(new StockPriceConverter())
+        binder.forField(stockCount).withConverter(new StockPriceConverter())
                 .bind("stockCount");
 
         category.setItemCaptionGenerator(Category::getName);
-        beanBinder.forField(category).bind("category");
-        beanBinder.bindInstanceFields(this);
+        binder.forField(category).bind("category");
+        binder.bindInstanceFields(this);
 
         // enable/disable save button while editing
-        beanBinder.addStatusChangeListener(event -> {
+        binder.addStatusChangeListener(event -> {
             boolean isValid = !event.hasValidationErrors();
-            boolean hasChanges = beanBinder.hasChanges();
+            boolean hasChanges = binder.hasChanges();
             save.setEnabled(hasChanges && isValid);
             discard.setEnabled(hasChanges);
         });
 
         save.addClickListener(event -> {
             if (currentProduct != null
-                    && beanBinder.writeBeanIfValid(currentProduct)) {
+                    && binder.writeBeanIfValid(currentProduct)) {
                 viewLogic.saveProduct(currentProduct);
             }
         });
@@ -122,7 +122,7 @@ public class ProductForm extends ProductFormDesign {
             product = new Product();
         }
         currentProduct = product;
-        beanBinder.readBean(product);
+        binder.readBean(product);
 
         // Scroll to the top
         // As this is not a Panel, using JavaScript

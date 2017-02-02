@@ -44,9 +44,7 @@ public class SampleCrudView extends CssLayout implements View {
         HorizontalLayout topLayout = createTopBar();
 
         grid = new ProductGrid();
-        // set a filter that takes into account the current value of the filter
-        // field
-        grid.setDataProvider(dataProvider.withFilter(() -> filter.getValue()));
+        grid.setDataProvider(dataProvider);
         grid.asSingleSelect().addValueChangeListener(
                 event -> viewLogic.rowSelected(event.getValue()));
 
@@ -71,8 +69,8 @@ public class SampleCrudView extends CssLayout implements View {
         filter.setStyleName("filter-textfield");
         filter.setPlaceholder("Filter name, availability or category");
         ResetButtonForTextField.extend(filter);
-        // reapply the filter
-        filter.addValueChangeListener(event -> dataProvider.refreshAll());
+        // Apply the filter to grid's data provider. TextField value is never null
+        filter.addValueChangeListener(event -> dataProvider.setFilter(event.getValue()));
 
         newProduct = new Button("New product");
         newProduct.addStyleName(ValoTheme.BUTTON_PRIMARY);
