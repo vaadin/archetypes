@@ -14,6 +14,7 @@ import ${package}.samples.backend.data.Availability;
 import ${package}.samples.backend.data.Category;
 import ${package}.samples.backend.data.Product;
 
+import com.vaadin.data.BeanValidationBinder;
 import com.vaadin.data.Binder;
 import com.vaadin.data.Result;
 import com.vaadin.data.converter.StringToIntegerConverter;
@@ -76,7 +77,7 @@ public class ProductForm extends ProductFormDesign {
         availability.setItems(Availability.values());
         availability.setEmptySelectionAllowed(false);
 
-        binder = new Binder<>(Product.class);
+        binder = new BeanValidationBinder<>(Product.class);
         binder.forField(price).withConverter(new EuroConverter())
                 .bind("price");
         binder.forField(stockCount).withConverter(new StockPriceConverter())
