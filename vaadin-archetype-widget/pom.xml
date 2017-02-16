@@ -44,10 +44,14 @@
     </developer>
   </developers>
   <scm>
-    <url>https://github.com/vaadin/maven-integration</url>
-    <connection>https://github.com/vaadin/maven-integration.git</connection>
-    <developerConnection>https://github.com/vaadin/maven-integration.git</developerConnection>
+    <url>https://github.com/vaadin/archetypes</url>
+    <connection>https://github.com/vaadin/archetypes.git</connection>
+    <developerConnection>git@github.com:vaadin/archetypes.git</developerConnection>
   </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/vaadin/archetypes/issues</url>
+  </issueManagement>
   <licenses>
     <license>
       <name>Apache License Version 2.0</name>
