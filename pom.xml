@@ -22,13 +22,15 @@
     <connection>https://github.com/vaadin/archetypes.git</connection>
     <developerConnection>git@github.com:vaadin/archetypes.git</developerConnection>
   </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/vaadin/archetypes/issues</url>
+  </issueManagement>
   <modules>
     <module>vaadin-archetype-application</module>
     <module>vaadin-archetype-application-example</module>
     <module>vaadin-archetype-application-multimodule</module>
-    <module>vaadin-archetype-jee-application</module>
     <module>vaadin-archetype-liferay-portlet</module>
-    <module>vaadin-archetype-liferay-portlet-sharedlib</module>
     <module>vaadin-archetype-widget</module>
   </modules>
   <licenses>
@@ -38,5 +40,18 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  
+  <profiles>
+    <profile>
+      <id>archetypes-published-separately</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>vaadin-archetype-jee-application</module>
+        <module>vaadin-archetype-liferay-portlet-sharedlib</module>
+      </modules>
+    </profile>
+  </profiles>
 
 </project>
