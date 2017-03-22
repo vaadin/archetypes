@@ -1,9 +1,9 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-${symbol_pound} ${componentClassName} Add-on for Vaadin 7
+${symbol_pound} ${componentClassName} Add-on for Vaadin 8
 
-${ComponentClassName} is a UI component add-on for Vaadin 7.
+${ComponentClassName} is a UI component add-on for Vaadin 8.
 
 ${symbol_pound}${symbol_pound} Online demo
 
