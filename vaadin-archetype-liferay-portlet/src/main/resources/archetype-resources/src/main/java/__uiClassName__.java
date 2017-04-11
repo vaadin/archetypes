@@ -9,7 +9,7 @@ import javax.portlet.PortletSession;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.service.UserLocalServiceUtil;
+import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
@@ -20,9 +20,17 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
+import org.osgi.service.component.annotations.Component;
+
 @Theme("${theme}")
 @SuppressWarnings("serial")
 @Widgetset("${package}.AppWidgetSet")
+@Component(service = UI.class, property = {
+        "com.liferay.portlet.display-category=${liferayCategoryName}",
+        "javax.portlet.name=${portletName}",
+        "javax.portlet.display-name=${portletDisplayName}",
+        "javax.portlet.security-role-ref=power-user,user",
+        "com.vaadin.osgi.liferay.portlet-ui=true"})
 public class ${uiClassName} extends UI {
 
     private static Log log = LogFactoryUtil.getLog(${uiClassName}.class);
