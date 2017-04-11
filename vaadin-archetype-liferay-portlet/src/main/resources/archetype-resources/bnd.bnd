@@ -1,0 +1,8 @@
+Bundle-Name: \${symbol_dollar}{project.name}
+Bundle-Version: \${symbol_dollar}{project.version}
+Bundle-SymbolicName: \${symbol_dollar}{project.groupId}.\${symbol_dollar}{project.artifactId}
+Export-Package: ${package}
+Import-Package: !com.google*,\
+    !com.vaadin.client*,\
+    *
+    
