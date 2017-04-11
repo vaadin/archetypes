@@ -1,111 +1,108 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <name>Vaadin 8.0 Liferay 6.2-GA1 archetype</name>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<name>Vaadin 8.0 Liferay 7.0.2-GA1 archetype</name>
 
-    <parent>
-        <groupId>com.vaadin</groupId>
-        <artifactId>vaadin-archetypes</artifactId>
-        <version>8.0-SNAPSHOT</version>
-    </parent>
-    <groupId>com.vaadin</groupId>
-    <artifactId>vaadin-archetype-liferay-portlet</artifactId>
+	<parent>
+		<groupId>com.vaadin</groupId>
+		<artifactId>vaadin-archetypes</artifactId>
+		<version>8.0-SNAPSHOT</version>
+	</parent>
+	<groupId>com.vaadin</groupId>
+	<artifactId>vaadin-archetype-liferay-portlet</artifactId>
 
-    <packaging>maven-archetype</packaging>
-    <organization>
-        <name>Vaadin Ltd</name>
-        <url>http://vaadin.com</url>
-    </organization>
-    <url>http://vaadin.com</url>
-    <inceptionYear>2014</inceptionYear>
-    <description>
-        This archetype generates a self-contained Vaadin 8 Liferay portlet.
-        It packages all Vaadin static resources (widgetset, theme etc.)
-        and doesn't make use of portal-provided resources.
-
-        Liferay-specific properties should be defined in a Maven profile
-        and you should activate this profile when performing builds of a
-        project based on this archetype.
-        Please see https://www.liferay.com/documentation/liferay-portal/6.2/development/-/ai/developing-plugins-using-maven-liferay-portal-6-2-dev-guide-02-en
+	<packaging>maven-archetype</packaging>
+	<organization>
+		<name>Vaadin Ltd</name>
+		<url>http://vaadin.com</url>
+	</organization>
+	<url>http://vaadin.com</url>
+	<inceptionYear>2014</inceptionYear>
+	<description>
+        This archetype generates a Liferay portlet plugin project that relies on 
+        the Vaadin bundles being installed on the portal server.
+        
+        This example builds an OSGi bundle that can be installed on a Liferay server. 
+        The Vaadin integration handles the registration of the annotated UI as a Portet.
     </description>
 
-    <developers>
-        <developer>
-            <id>pmatti</id>
-            <name>Maciej Przepióra</name>
-            <email>matthew@vaadin.com</email>
-            <organization>Vaadin Ltd</organization>
-            <organizationUrl>http://vaadin.com</organizationUrl>
-            <timezone>+2</timezone>
-        </developer>
-    </developers>
+	<developers>
+		<developer>
+			<id>pmatti</id>
+			<name>Maciej Przepióra</name>
+			<email>matthew@vaadin.com</email>
+			<organization>Vaadin Ltd</organization>
+			<organizationUrl>http://vaadin.com</organizationUrl>
+			<timezone>+2</timezone>
+		</developer>
+	</developers>
 
-    <scm>
-    <url>https://github.com/vaadin/archetypes</url>
-    <connection>https://github.com/vaadin/archetypes.git</connection>
-    <developerConnection>git@github.com:vaadin/archetypes.git</developerConnection>
-    </scm>
-    <issueManagement>
-        <system>GitHub Issues</system>
-        <url>https://github.com/vaadin/archetypes/issues</url>
-    </issueManagement>
+	<scm>
+		<url>https://github.com/vaadin/archetypes</url>
+		<connection>https://github.com/vaadin/archetypes.git</connection>
+		<developerConnection>git@github.com:vaadin/archetypes.git</developerConnection>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/vaadin/archetypes/issues</url>
+	</issueManagement>
 
-    <licenses>
-        <license>
-            <name>Apache License Version 2.0</name>
-            <distribution>repo</distribution>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-        </license>
-    </licenses>
+	<licenses>
+		<license>
+			<name>Apache License Version 2.0</name>
+			<distribution>repo</distribution>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
 
-    <properties>
-        <vaadin.prerelease>false</vaadin.prerelease>
-        <vaadin.version>${project.version}</vaadin.version>
-        <vaadin.plugin.version>\${symbol_dollar}{vaadin.version}</vaadin.plugin.version>
-    </properties>
+	<properties>
+		<vaadin.prerelease>false</vaadin.prerelease>
+		<vaadin.version>${project.version}</vaadin.version>
+		<vaadin.plugin.version>\${symbol_dollar}{vaadin.version}</vaadin.plugin.version>
+	</properties>
 
-    <build>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.archetype</groupId>
-                <artifactId>archetype-packaging</artifactId>
-                <version>2.2</version>
-            </extension>
-        </extensions>
-        <plugins>
-            <plugin>
-                <artifactId>maven-archetype-plugin</artifactId>
-                <version>2.2</version>
-                <extensions>true</extensions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                    <escapeString>\</escapeString>
-                </configuration>
-            </plugin>
-        </plugins>
-        <resources>
-          <resource>
-            <directory>src/main/resources</directory>
-            <filtering>true</filtering>
-            <includes>
-              <include>archetype-resources/pom.xml</include>
-            </includes>
-          </resource>
-          <resource>
-            <directory>src/main/resources</directory>
-            <filtering>false</filtering>
-            <excludes>
-              <exclude>archetype-resources/pom.xml</exclude>
-            </excludes>
-          </resource>
-    	</resources>
-    </build>
-
-
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.archetype</groupId>
+				<artifactId>archetype-packaging</artifactId>
+				<version>2.2</version>
+			</extension>
+		</extensions>
+		<plugins>
+			<plugin>
+				<artifactId>maven-archetype-plugin</artifactId>
+				<version>2.2</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<escapeString>\</escapeString>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>archetype-resources/bnd.bnd</include>
+					<include>archetype-resources/pom.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<exclude>archetype-resources/bnd.bnd</exclude>
+					<exclude>archetype-resources/pom.xml</exclude>
+				</excludes>
+			</resource>
+		</resources>
+	</build>
 
 </project>
