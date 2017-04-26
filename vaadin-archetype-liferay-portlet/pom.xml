@@ -1,12 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<name>Vaadin 8.0 Liferay 7.0.2-GA1 archetype</name>
+	<name>Vaadin 8.1 Liferay 7.0.2-GA3 archetype</name>
 
 	<parent>
 		<groupId>com.vaadin</groupId>
 		<artifactId>vaadin-archetypes</artifactId>
-		<version>8.0-SNAPSHOT</version>
+		<version>8.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.vaadin</groupId>
 	<artifactId>vaadin-archetype-liferay-portlet</artifactId>
@@ -21,7 +22,7 @@
 	<description>
     This archetype generates a Liferay portlet plugin project that relies on the Vaadin bundles being installed on the portal server.
 
-    The result of the maven build is an OSGi bundle that can be installed on a Liferay server. The Vaadin integration handles the registration of the annotated UI as a Portlet.
+    The result of the maven build is an OSGi bundle that can be installed on a Liferay 7+ server. The Vaadin integration handles the registration of the annotated UI as a Portlet.
   </description>
 
 	<developers>

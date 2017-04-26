@@ -5,4 +5,3 @@ Export-Package: ${package}
 Import-Package: !com.google*,\
     !com.vaadin.client*,\
     *
-    
