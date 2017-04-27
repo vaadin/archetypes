@@ -6,7 +6,7 @@
 		<artifactId>vaadin-archetypes</artifactId>
 		<version>8.1-SNAPSHOT</version>
 	</parent>
-	<name>Vaadin 7 Liferay 6 archetype</name>
+	<name>Vaadin 8.1 Liferay 6 archetype</name>
 
 	<groupId>com.vaadin</groupId>
 	<artifactId>vaadin-archetype-liferay-portlet-sharedlib</artifactId>

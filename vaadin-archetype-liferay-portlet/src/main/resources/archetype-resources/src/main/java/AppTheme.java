@@ -6,7 +6,7 @@ import com.vaadin.osgi.resources.OSGiVaadinTheme;
 import com.vaadin.ui.themes.ValoTheme;
 
 @Component(immediate = true, service = OSGiVaadinTheme.class)
-public class ${theme} extends ValoTheme implements OSGiVaadinTheme {
+public class AppTheme extends ValoTheme implements OSGiVaadinTheme {
     @Override
     public String getName() {
         return "${theme}";
