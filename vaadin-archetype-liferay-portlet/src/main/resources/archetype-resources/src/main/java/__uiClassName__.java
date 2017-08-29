@@ -21,6 +21,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ServiceScope;
 
 @Theme("${theme}")
 @SuppressWarnings("serial")
@@ -30,7 +31,7 @@ import org.osgi.service.component.annotations.Component;
         "javax.portlet.name=${portletName}",
         "javax.portlet.display-name=${portletDisplayName}",
         "javax.portlet.security-role-ref=power-user,user",
-        "com.vaadin.osgi.liferay.portlet-ui=true"})
+        "com.vaadin.osgi.liferay.portlet-ui=true"}, scope = ServiceScope.PROTOTYPE)
 public class ${uiClassName} extends UI {
 
     private static Log log = LogFactoryUtil.getLog(${uiClassName}.class);
