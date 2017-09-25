@@ -33,7 +33,7 @@ public class ${uiName} extends UI {
         name.setCaption("Type your name here:");
 
         Button button = new Button("Click Me");
-        button.addClickListener( e -> {
+        button.addClickListener(e -> {
             layout.addComponent(new Label("Thanks " + name.getValue() 
                     + ", it works!"));
         });
