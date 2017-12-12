@@ -58,10 +58,10 @@ public class ProductDataProvider
      */
     public void setFilter(String filterText) {
         Objects.requireNonNull(filterText, "Filter text cannot be null");
-        if (Objects.equals(this.filterText, filterText.trim())) {
+        if (Objects.equals(this.filterText, filterText.trim().toLowerCase(Locale.ENGLISH))) {
             return;
         }
-        this.filterText = filterText.trim();
+        this.filterText = filterText.trim().toLowerCase(Locale.ENGLISH);
         
         refreshAll();
     }
