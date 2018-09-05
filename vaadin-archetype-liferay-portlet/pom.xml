@@ -15,9 +15,9 @@
 	<packaging>maven-archetype</packaging>
 	<organization>
 		<name>Vaadin Ltd</name>
-		<url>http://vaadin.com</url>
+		<url>https://vaadin.com</url>
 	</organization>
-	<url>http://vaadin.com</url>
+	<url>https://vaadin.com</url>
 	<inceptionYear>2014</inceptionYear>
 	<description>
     This archetype generates a Liferay portlet plugin project that relies on the Vaadin bundles being installed on the portal server.
@@ -31,7 +31,7 @@
 			<name>Maciej Przepióra</name>
 			<email>matthew@vaadin.com</email>
 			<organization>Vaadin Ltd</organization>
-			<organizationUrl>http://vaadin.com</organizationUrl>
+			<organizationUrl>https://vaadin.com</organizationUrl>
 			<timezone>+2</timezone>
 		</developer>
 	</developers>

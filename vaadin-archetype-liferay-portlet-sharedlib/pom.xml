@@ -27,7 +27,7 @@
 			<name>Maciej Przepióra</name>
 			<email>matthew@vaadin.com</email>
 			<organization>Vaadin Ltd</organization>
-			<organizationUrl>http://vaadin.com</organizationUrl>
+			<organizationUrl>https://vaadin.com</organizationUrl>
 			<timezone>+2</timezone>
 		</developer>
 	</developers>
@@ -66,11 +66,11 @@
 
 	<organization>
 		<name>Vaadin Ltd</name>
-		<url>http://vaadin.com</url>
+		<url>https://vaadin.com</url>
 	</organization>
 	<issueManagement>
-		<system>Trac</system>
-		<url>http://dev.vaadin.com/</url>
+		<system>GitHub Issues</system>
+		<url>https://github.com/vaadin/archetypes/issues</url>
 	</issueManagement>
 
 

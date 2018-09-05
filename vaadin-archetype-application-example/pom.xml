@@ -12,7 +12,7 @@
   <packaging>maven-archetype</packaging>
 
   <name>vaadin-archetype-application-example</name>
-  <url>http://vaadin.com</url>
+  <url>https://vaadin.com</url>
   <description>
       This archetype generates a sample Vaadin application as a multi-module Maven project.
   </description>
