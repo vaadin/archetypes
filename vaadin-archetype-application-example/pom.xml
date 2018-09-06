@@ -82,14 +82,7 @@
 
   <developers>
     <developer>
-      <name>Petter Holmström</name>
-      <email>petter@vaadin.com</email>
-      <organization>Vaadin</organization>
-      <organizationUrl>https://vaadin.com</organizationUrl>
-    </developer>
-    <developer>
-      <name>Henri Sara</name>
-      <email>hesara@vaadin.com</email>
+      <id>vaadin</id>
       <organization>Vaadin</organization>
       <organizationUrl>https://vaadin.com</organizationUrl>
     </developer>

@@ -19,28 +19,9 @@
   </description>
   <developers>
     <developer>
-      <id>daniel</id>
-      <name>Daniel Bell</name>
-      <email>daniel.r.bell@gmail.com</email>
-      <organization>ITree</organization>
-      <organizationUrl>https://www.itree.com.au</organizationUrl>
-      <timezone>+10</timezone>
-    </developer>
-    <developer>
-      <id>hesara</id>
-      <name>Henri Sara</name>
-      <email>hesara@vaadin.com</email>
+      <id>vaadin</id>
       <organization>Vaadin</organization>
       <organizationUrl>https://vaadin.com</organizationUrl>
-      <timezone>+2</timezone>
-    </developer>
-    <developer>
-      <id>joonas</id>
-      <name>Joonas Lehtinen</name>
-      <email>joonas@vaadin.com</email>
-      <organization>Vaadin</organization>
-      <organizationUrl>https://vaadin.com</organizationUrl>
-      <timezone>+2</timezone>
     </developer>
   </developers>
   <scm>

@@ -23,12 +23,9 @@
 	<packaging>maven-archetype</packaging>
 	<developers>
 		<developer>
-			<id>pmatti</id>
-			<name>Maciej Przepióra</name>
-			<email>matthew@vaadin.com</email>
-			<organization>Vaadin Ltd</organization>
+			<id>vaadin</id>
+			<organization>Vaadin</organization>
 			<organizationUrl>https://vaadin.com</organizationUrl>
-			<timezone>+2</timezone>
 		</developer>
 	</developers>
 
