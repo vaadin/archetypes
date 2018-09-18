@@ -11,7 +11,7 @@ single module Maven 2 project.
 -------------------------------------------------------------------
 USING THE ARCHETYPE:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-1) Install Maven 2 (see http://maven.apache.org for details)
+1) Install Maven 2 (see https://maven.apache.org for details)
 
 2) Build the archetype from the source
 
@@ -41,6 +41,6 @@ FURTHER INFORMATION
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Further information on using Vaadin with Maven is available (at the
 time of writing) at
-http://dev.vaadin.com/wiki/Articles/MavenIntegration .
+https://vaadin.com/docs/v8/framework/getting-started/getting-started-maven.html .
 
 -------------------------------------------------------------------

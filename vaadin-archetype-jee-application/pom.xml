@@ -14,7 +14,7 @@
     <packaging>maven-archetype</packaging>
 
     <name>vaadin-archetype-java-ee-application</name>
-    <url>http://vaadin.com</url>
+    <url>https://vaadin.com</url>
     <description>
         This archetype generates a sample Java EE Vaadin application as a Maven project.
     </description>
