@@ -28,10 +28,6 @@
   </issueManagement>
   <modules>
     <module>vaadin-archetype-application</module>
-    <module>vaadin-archetype-application-example</module>
-    <module>vaadin-archetype-application-multimodule</module>
-    <module>vaadin-archetype-liferay-portlet</module>
-    <module>vaadin-archetype-widget</module>
   </modules>
   <licenses>
     <license>
@@ -40,18 +36,5 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  
-  <profiles>
-    <profile>
-      <id>archetypes-published-separately</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <modules>
-        <module>vaadin-archetype-jee-application</module>
-        <module>vaadin-archetype-liferay-portlet-sharedlib</module>
-      </modules>
-    </profile>
-  </profiles>
 
 </project>
