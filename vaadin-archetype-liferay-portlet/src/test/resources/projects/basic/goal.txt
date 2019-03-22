@@ -1,1 +1,0 @@
-clean install -Dliferay.maven.plugin.version=6.2.10.13
