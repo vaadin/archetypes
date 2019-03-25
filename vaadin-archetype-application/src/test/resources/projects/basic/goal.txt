@@ -1,1 +1,1 @@
-clean package -Pvaadin-prerelease
+clean install
