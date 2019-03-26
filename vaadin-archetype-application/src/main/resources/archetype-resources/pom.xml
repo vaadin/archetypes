@@ -21,7 +21,9 @@
         <repository>
             <id>Vaadin Directory</id>
             <url>http://maven.vaadin.com/vaadin-addons</url>
-            <snapshots>false</snapshots>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
