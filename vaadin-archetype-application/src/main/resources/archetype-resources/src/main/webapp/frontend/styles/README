@@ -1,0 +1,4 @@
+Place your optional styles in this folder and the file to your main layout
+or root navigation target with HtmlImport.
+
+See https://vaadin.com/docs/flow/theme/theming-overview.html for getting started on theming Vaadin Flow applications.
