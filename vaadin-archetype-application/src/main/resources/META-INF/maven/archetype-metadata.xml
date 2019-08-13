@@ -21,10 +21,20 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
+      <directory>frontend</directory>
+      <includes>
+        <include>**/*</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
       <directory></directory>
       <includes>
         <include>LICENSE.md</include>
         <include>README.md</include>
+        <include>.gitignore</include>
+        <include>package.json</include>
+        <include>package-lock.json</include>
+        <include>webpack.config.js</include>
       </includes>
     </fileSet>
   </fileSets>
