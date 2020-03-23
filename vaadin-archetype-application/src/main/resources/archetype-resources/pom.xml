@@ -17,7 +17,7 @@
 
     <repositories>
         <!-- The order of definitions matters. Explicitly defining central here to make sure it has the highest priority. -->
-
+       
         <!-- Main Maven repository -->
         <repository>
             <id>central</id>
@@ -35,7 +35,15 @@
             </snapshots>
         </repository>
     </repositories>
-
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>        
+    </pluginRepositories>
     <dependencyManagement>
         <dependencies>
             <dependency>
