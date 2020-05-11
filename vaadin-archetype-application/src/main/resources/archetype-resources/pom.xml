@@ -25,12 +25,29 @@
 		<vaadin.widgetset.mode>local</vaadin.widgetset.mode>
 	</properties>
 
-	<repositories>
+	<repositories>        
+		<!-- Main Maven repository -->
+		<repository>
+			<id>central</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 		<repository>
 			<id>vaadin-addons</id>
 			<url>http://maven.vaadin.com/vaadin-addons</url>
 		</repository>
 	</repositories>
+	
+	<!-- Main Maven repository -->
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
 
 	<dependencyManagement>
 		<dependencies>
