@@ -19,20 +19,32 @@
 	</properties>
 	<repositories>
 		<repository>
+			<id>central</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
 			<id>liferay-releases</id>
 			<url>https://repository.liferay.com/nexus/content/repositories/liferay-releases-ce/</url>
 		</repository>
 		<!-- vaadin repos -->
 		<repository>
 			<id>vaadin-addons</id>
-			<url>http://maven.vaadin.com/vaadin-addons</url>
+			<url>https://maven.vaadin.com/vaadin-addons</url>
 		</repository>
 	</repositories>
 
 	<pluginRepositories>
 		<pluginRepository>
+			<id>central</id>
+			<url>https://repo.maven.apache.org/maven2/</url>
+		</pluginRepository>
+		<pluginRepository>
 			<id>liferay-releases-plugins</id>
-			<url>http://repository.liferay.com/nexus/content/repositories/liferay-releases-ce/</url>
+			<url>https://repository.liferay.com/nexus/content/repositories/liferay-releases-ce/</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -227,7 +239,7 @@
 			<repositories>
 				<repository>
 					<id>vaadin-prereleases</id>
-					<url>http://maven.vaadin.com/vaadin-prereleases</url>
+					<url>https://maven.vaadin.com/vaadin-prereleases</url>
 				</repository>
 				<repository>
 					<id>vaadin-snapshots</id>
@@ -243,7 +255,7 @@
 			<pluginRepositories>
 				<pluginRepository>
 					<id>vaadin-prereleases</id>
-					<url>http://maven.vaadin.com/vaadin-prereleases</url>
+					<url>https://maven.vaadin.com/vaadin-prereleases</url>
 				</pluginRepository>
 				<pluginRepository>
 					<id>vaadin-snapshots</id>

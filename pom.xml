@@ -13,7 +13,7 @@
   <packaging>pom</packaging>
 
   <name>vaadin-archetypes</name>
-  <url>http://vaadin.com</url>
+  <url>https://vaadin.com</url>
   <description>
       Root project for Vaadin archetypes
   </description>
