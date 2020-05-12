@@ -19,6 +19,14 @@
 
     <repositories>
         <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
             <id>liferay-releases</id>
             <url>https://repository.liferay.com/nexus/content/repositories/liferay-releases-ce/</url>
         </repository>
@@ -31,6 +39,10 @@
     </repositories>
 
     <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </pluginRepository>
         <pluginRepository>
             <id>liferay-releases-plugins</id>
             <url>https://repository.liferay.com/nexus/content/repositories/liferay-releases-ce/</url>
