@@ -35,6 +35,7 @@
 
     <modules>
         <module>vaadin-archetype-application</module>
+        <module>vaadin-archetype-spring-application</module>
     </modules>
 
     <licenses>
