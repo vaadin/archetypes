@@ -33,7 +33,10 @@
       <directory></directory>
       <includes>
         <include>.gitignore</include>
+        <include>.prettierrc.js</include>
         <include>LICENSE.md</include>
+        <include>package-lock.json</include>
+        <include>package.json</include>
         <include>README.md</include>
       </includes>
     </fileSet>
