@@ -10,12 +10,12 @@
         <version>21.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>vaadin-archetype-application</artifactId>
+    <artifactId>vaadin-archetype-spring-application</artifactId>
     <packaging>maven-archetype</packaging>
 
-    <name>Project base for Vaadin Flow applications (non-LTS version)</name>
-    <description>This archetype creates a Vaadin Flow application for basic
-        servlet container and can be used as a project base.
+    <name>Project base for Vaadin Java applications with Spring Boot</name>
+    <description>
+        This archetype creates a Vaadin Java application with Spring Boot.
     </description>
     <url>https://vaadin.com</url>
 
