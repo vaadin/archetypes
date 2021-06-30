@@ -30,7 +30,7 @@ import ${package}.views.about.AboutView;
 /**
  * The main view is a top-level placeholder for other views.
  */
-@PWA(name = "My App", shortName = "My App", enableInstallPrompt = false)
+@PWA(name = "${applicationName}", shortName = "${applicationName}", enableInstallPrompt = false)
 @Theme(themeFolder = "${artifactId}")
 public class MainLayout extends AppLayout {
 
