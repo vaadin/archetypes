@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <vaadin.version>20.0-SNAPSHOT</vaadin.version>
+        <vaadin.version>${version}</vaadin.version>
     </properties>
     <name>vaadin-archetypes</name>
     <url>http://vaadin.com</url>
