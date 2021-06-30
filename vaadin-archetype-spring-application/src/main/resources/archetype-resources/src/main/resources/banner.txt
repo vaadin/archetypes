@@ -1,0 +1,9 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+ __  __             _                  
+|  ${symbol_escape}/  | _   _     / ${symbol_escape}    _ __   _ __  
+| |${symbol_escape}/| || | | |   / _ ${symbol_escape}  | '_ ${symbol_escape} | '_ ${symbol_escape} 
+| |  | || |_| |  / ___ ${symbol_escape} | |_) || |_) |
+|_|  |_| ${symbol_escape}__, | /_/   ${symbol_escape}_${symbol_escape}| .__/ | .__/ 
+         |___/           |_|    |_|    
