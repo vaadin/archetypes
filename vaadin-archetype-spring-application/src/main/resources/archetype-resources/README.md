@@ -22,11 +22,10 @@ Once the JAR file is built, you can run it using
 
 ## Project structure
 
-- `MainView.java` in `src/main/java` contains the navigation setup (i.e., the 
-  side/top bar and the main menu). This setup uses 
-  [App Layout](https://vaadin.com/components/vaadin-app-layout).
-- `views` package in `src/main/java` contains the server-side Java views of your application.
-- `themes` folder in `frontend/`  contains the custom CSS styles.
+- `MainView.java` in `src/main/java` is an example Vaadin view.
+- `src/main/resources` contains configuration files and static resources
+- The `frontend` directory in the root folder is where client-side 
+  dependencies and resource files should be placed.
 
 ## Useful links
 
