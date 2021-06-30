@@ -3,6 +3,9 @@
 This project can be used as a starting point to create your own Vaadin application with Spring Boot.
 It contains all the necessary configuration and some placeholder files to get you started.
 
+You can download a Vaadin app starter with additional configurations at [start.vaadin.com](https://start.vaadin.com) 
+(a visual tool for quickly generating Vaadin web apps that you can download and open in your IDE).
+
 ## Running the application
 The project is a standard Maven project. To run it from the command line,
 type `mvn`, then open http://localhost:8080 in your browser.
