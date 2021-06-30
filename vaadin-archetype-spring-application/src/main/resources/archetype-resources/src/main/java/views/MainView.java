@@ -8,7 +8,6 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
-import com.vaadin.flow.theme.Theme;
 
 /**
  * The main view is a top-level placeholder for other views.
