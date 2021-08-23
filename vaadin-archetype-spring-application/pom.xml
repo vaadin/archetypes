@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-archetypes</artifactId>
+        <version>14.7-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>vaadin-archetype-spring-application</artifactId>
+    <packaging>maven-archetype</packaging>
+
+    <name>Project base for Vaadin Java applications with Spring Boot</name>
+    <description>
+        This archetype creates a Vaadin Java application with Spring Boot.
+    </description>
+    <url>https://vaadin.com</url>
+
+    <scm>
+        <url>https://github.com/vaadin/archetypes</url>
+        <connection>https://github.com/vaadin/archetypes.git</connection>
+        <developerConnection>git@github.com:vaadin/archetypes.git</developerConnection>
+    </scm>
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/vaadin/archetypes/issues</url>
+    </issueManagement>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>3.2.0</version>
+            </extension>
+        </extensions>
+
+        <!-- Filter archetype pom.xml to replace ${vaadin.version} when
+        building the archetype -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <escapeString>\</escapeString>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>archetype-resources/pom.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>archetype-resources/pom.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+
+    <developers>
+        <developer>
+            <id>vaadin</id>
+            <organization>Vaadin</organization>
+            <organizationUrl>https://vaadin.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>UNLICENSE</name>
+            <url>http://unlicense.org/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+</project>

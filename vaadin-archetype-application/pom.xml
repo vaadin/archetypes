@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-archetypes</artifactId>
-        <version>14.0-SNAPSHOT</version>
+        <version>14.7-SNAPSHOT</version>
     </parent>
 
     <artifactId>vaadin-archetype-application</artifactId>
@@ -34,7 +34,7 @@
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
                 <artifactId>archetype-packaging</artifactId>
-                <version>3.0.0</version>
+                <version>3.2.0</version>
             </extension>
         </extensions>
 
@@ -44,7 +44,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.0</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <escapeString>\</escapeString>
