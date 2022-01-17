@@ -9,15 +9,26 @@ To build and deploy the static resource bundle, do the following:
 
 `-Dvaadin.portlet.static.resources.mapping=/o/vaadin-portlet-static/`
 
-2. Build project with `mvn install`
+2. Add a dependency to your Vaadin Portlet JAR(s) using
+
+```
+     <dependency>
+         <groupId>com.example</groupId>
+         <artifactId>my-vaadin-portlet</artifactId>
+         <version>1.0-SNAPSHOT</version>
+         <classifier>classes</classifier>
+     </dependency>
+```
+
+3. Build project with `mvn install`
 
     _Note_: Currently you'll need a local build of the Portlet add-on, from the feature/liferay branch. To install a snapshot build to your local Maven repository, 
 execute git clone --single-branch --branch feature/liferay https://github.com/vaadin/portlet.git; cd portlet; mvn install -DskipTests=true
 
-3. Start Liferay by using `{liferay.home}/tomcat-<version>/bin/startup.sh` (`startup.bat`) of the Liferay's bundle 
+4. Start Liferay by using `{liferay.home}/tomcat-<version>/bin/startup.sh` (`startup.bat`) of the Liferay's bundle 
 or by downloading and running the Docker image.
 
-4. Copy the `vaadin-portlet-static.war` into `{liferay.home}/deploy` to deploy it.
+5. Copy the `vaadin-portlet-static.war` into `{liferay.home}/deploy` to deploy it.
 
 Some useful links:
 - [Installing Liferay](https://learn.liferay.com/dxp/latest/en/installation-and-upgrades/installing-liferay.html)

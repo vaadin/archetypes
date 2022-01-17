@@ -12,9 +12,6 @@
     <requiredProperty key="package">
       <defaultValue>com.example</defaultValue>
     </requiredProperty>
-    <requiredProperty key="portletDependencyGroupId"/>
-    <requiredProperty key="portletDependencyArtifactId"/>
-    <requiredProperty key="portletDependencyVersionId"/>
   </requiredProperties>
   <fileSets>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">

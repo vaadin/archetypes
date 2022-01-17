@@ -19,13 +19,15 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>\${portletDependencyGroupId}</groupId>
-            <artifactId>\${portletDependencyArtifactId}</artifactId>
-            <version>\${portletDependencyVersionId}</version>
-        </dependency>
 
-        <!-- Add more Vaadin portlet dependency here if needed-->
+        <!-- Add your Vaadin portlet JAR dependencies here -->
+
+<!--        <dependency>-->
+<!--            <groupId>com.example</groupId>-->
+<!--            <artifactId>my-vaadin-portlet</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--            <classifier>classes</classifier>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.vaadin</groupId>
