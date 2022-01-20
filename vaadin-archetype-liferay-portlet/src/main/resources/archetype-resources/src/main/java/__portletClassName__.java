@@ -14,24 +14,19 @@ import com.vaadin.flow.theme.Theme;
         portletName = "ContactList",
         dependencies = @Dependency(name = "PortletHub", scope = "javax.portlet", version = "3.0.0")
 )
-public class ${portletClassName} extends VaadinLiferayPortlet<MyPortletContent> {
+public class ${portletClassName} extends VaadinLiferayPortlet<${portletContentClassName}> {
 
     @Override
-    public String getPortletTag() {
-        return "portlet-content";
-    }
-
-    @Override
-    public WebComponentExporter<MyPortletContent> create() {
-        return new MyPortletExporter();
+    public WebComponentExporter<${portletContentClassName}> create() {
+        return new ThemedPortletExporter();
     }
 
     /**
      * Custom implementation only for styling the shadow DOM
      */
     @Theme(themeFolder = "${theme}")
-    private class MyPortletExporter extends PortletWebComponentExporter {
-        public MyPortletExporter() {
+    private class ThemedPortletExporter extends PortletWebComponentExporter {
+        public ThemedPortletExporter() {
             super(${portletClassName}.this.getPortletTag());
         }
     }

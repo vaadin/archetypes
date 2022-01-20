@@ -3,32 +3,17 @@
     xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <requiredProperties>
-    <requiredProperty key="applicationName">
-      <defaultValue>My Vaadin Portlet Application</defaultValue>
-    </requiredProperty>
     <requiredProperty key="liferayVersion">
       <defaultValue>7.3.6-ga7</defaultValue>
     </requiredProperty>
-    <requiredProperty key="vaadinPortletVersion">
-      <defaultValue>1.0-SNAPSHOT</defaultValue>
-    </requiredProperty>
     <requiredProperty key="portletClassName">
-      <defaultValue>MyLiferayPortlet</defaultValue>
+      <defaultValue>MyVaadinPortlet</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="portletContentClassName">
+      <defaultValue>MyVaadinPortletContent</defaultValue>
     </requiredProperty>
     <requiredProperty key="theme">
       <defaultValue>my-theme</defaultValue>
-    </requiredProperty>
-    <requiredProperty key="liferayCategoryName">
-      <defaultValue>MyCategory</defaultValue>
-    </requiredProperty>
-    <requiredProperty key="portletId">
-      <defaultValue>my-liferay-portlet</defaultValue>
-    </requiredProperty>
-    <requiredProperty key="portletName">
-      <defaultValue>My Vaadin portlet</defaultValue>
-    </requiredProperty>
-    <requiredProperty key="portletDisplayName">
-      <defaultValue>My Vaadin portlet</defaultValue>
     </requiredProperty>
     <requiredProperty key="portletTitle">
       <defaultValue>My Vaadin portlet</defaultValue>
@@ -36,8 +21,20 @@
     <requiredProperty key="portletShortTitle">
       <defaultValue>Hello World</defaultValue>
     </requiredProperty>
-    <requiredProperty key="package">
-      <defaultValue>com.example</defaultValue>
+    <requiredProperty key="portletName">
+      <defaultValue>MyVaadinPortlet</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="portletDisplayName">
+      <defaultValue>My Vaadin portlet</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="portletId">
+      <defaultValue>my-liferay-portlet</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="vaadinPortletVersion">
+      <defaultValue>1.0.0.beta4</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="liferayCategoryName">
+      <defaultValue>category.sample</defaultValue>
     </requiredProperty>
   </requiredProperties>
   <fileSets>

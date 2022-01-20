@@ -10,11 +10,11 @@ import com.vaadin.flow.portal.PortletView;
 import com.vaadin.flow.portal.PortletViewContext;
 import com.vaadin.flow.portal.VaadinPortlet;
 
-public class MyPortletContent extends VerticalLayout implements PortletView {
+public class ${portletContentClassName} extends VerticalLayout implements PortletView {
 
     private PortletViewContext portletViewContext;
 
-    public MyPortletContent() {
+    public ${portletContentClassName}() {
         VaadinPortlet portlet = VaadinPortlet.getCurrent();
         String name = portlet.getPortletName();
         String serverInfo = portlet.getPortletContext().getServerInfo();
