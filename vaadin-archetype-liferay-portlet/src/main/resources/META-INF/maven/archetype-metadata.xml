@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="project-base"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <requiredProperties>
+    <requiredProperty key="liferayVersion">
+      <defaultValue>7.3.6-ga7</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="portletClassName">
+      <defaultValue>MyVaadinPortlet</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="portletContentClassName">
+      <defaultValue>MyVaadinPortletContent</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="theme">
+      <defaultValue>my-theme</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="portletTitle">
+      <defaultValue>My Vaadin portlet</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="portletShortTitle">
+      <defaultValue>Hello World</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="portletName">
+      <defaultValue>MyVaadinPortlet</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="portletDisplayName">
+      <defaultValue>My Vaadin portlet</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="vaadinPortletVersion">
+      <defaultValue>1.0.0</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="liferayCategoryName">
+      <defaultValue>category.sample</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+  <fileSets>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/flow-build-info.json</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>LICENSE.md</include>
+        <include>README.md</include>
+        <include>.gitignore</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>

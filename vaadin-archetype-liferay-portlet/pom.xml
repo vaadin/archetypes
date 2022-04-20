@@ -2,21 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <groupId>com.vaadin</groupId>
         <artifactId>vaadin-archetypes</artifactId>
+        <groupId>com.vaadin</groupId>
         <version>14.8-SNAPSHOT</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>vaadin-archetype-application</artifactId>
+    <artifactId>vaadin-archetype-liferay-portlet</artifactId>
     <packaging>maven-archetype</packaging>
 
-    <name>Project base for Vaadin Java applications</name>
-    <description>This archetype creates a Vaadin Java application for basic
-        servlet container and can be used as a project base.
-    </description>
+    <name>Project base for Vaadin Portlet projects deployed into Liferay 7</name>
+    <description>This archetype creates a Vaadin Portlet project for Liferay 7.3+ container and can be used as a project base.</description>
     <url>https://vaadin.com</url>
 
     <scm>
@@ -84,5 +81,6 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
 
 </project>

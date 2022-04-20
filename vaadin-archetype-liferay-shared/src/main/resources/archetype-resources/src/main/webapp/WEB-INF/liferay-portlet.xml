@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 7.1.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_7_1_0.dtd">
+
+<liferay-portlet-app>
+    <portlet>
+        <portlet-name>VaadinStaticBundle</portlet-name>
+        <instanceable>false</instanceable>
+        <css-class-wrapper>VaadinStaticBundle-portlet</css-class-wrapper>
+    </portlet>
+</liferay-portlet-app>
