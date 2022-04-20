@@ -27,9 +27,6 @@
     <requiredProperty key="portletDisplayName">
       <defaultValue>My Vaadin portlet</defaultValue>
     </requiredProperty>
-    <requiredProperty key="portletId">
-      <defaultValue>my-liferay-portlet</defaultValue>
-    </requiredProperty>
     <requiredProperty key="vaadinPortletVersion">
       <defaultValue>1.0.0</defaultValue>
     </requiredProperty>
