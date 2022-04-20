@@ -20,6 +20,6 @@ To build and deploy the Vaadin Porlet, do the following:
 
 Some useful links:
 - [Installing Liferay](https://learn.liferay.com/dxp/latest/en/installation-and-upgrades/installing-liferay.html)
-- [Vaadin Portlet](https://github.com/vaadin/portlet/tree/feature/liferay)
-- [Documentation](https://github.com/vaadin/flow-and-components-documentation/tree/master/documentation/portlet-support)
+- [Vaadin Portlet](https://github.com/vaadin/portlet)
+- [Documentation](https://vaadin.com/docs/v14/flow/integrations/portlet)
 - [Tutorials](https://github.com/vaadin/addressbook-portlet/)
