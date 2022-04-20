@@ -31,7 +31,7 @@
       <defaultValue>my-liferay-portlet</defaultValue>
     </requiredProperty>
     <requiredProperty key="vaadinPortletVersion">
-      <defaultValue>1.0.0.beta4</defaultValue>
+      <defaultValue>1.0.0</defaultValue>
     </requiredProperty>
     <requiredProperty key="liferayCategoryName">
       <defaultValue>category.sample</defaultValue>
