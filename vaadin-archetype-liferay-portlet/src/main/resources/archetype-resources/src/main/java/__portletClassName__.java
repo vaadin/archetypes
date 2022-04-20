@@ -11,7 +11,7 @@ import com.vaadin.flow.portal.VaadinLiferayPortlet;
 import com.vaadin.flow.theme.Theme;
 
 @PortletConfiguration(
-        portletName = "ContactList",
+        portletName = "${portletName}",
         dependencies = @Dependency(name = "PortletHub", scope = "javax.portlet", version = "3.0.0")
 )
 public class ${portletClassName} extends VaadinLiferayPortlet<${portletContentClassName}> {

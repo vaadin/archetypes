@@ -3,6 +3,6 @@
 
 <display>
     <category name="${liferayCategoryName}">
-        <portlet id="${portletId}" />
+        <portlet id="${portletName}" />
     </category>
 </display>

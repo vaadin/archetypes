@@ -5,7 +5,7 @@
     <portlet>
         <portlet-name>${portletName}</portlet-name>
         <instanceable>false</instanceable>
-        <css-class-wrapper>my-portlet-css</css-class-wrapper>
+        <css-class-wrapper>${portletName}-css</css-class-wrapper>
     </portlet>
     <role-mapper>
         <role-name>administrator</role-name>
