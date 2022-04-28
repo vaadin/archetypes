@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <requiredProperties>
     <requiredProperty key="vaadinPortletVersion">
-      <defaultValue>1.0.0.beta4</defaultValue>
+      <defaultValue>1.0.0</defaultValue>
     </requiredProperty>
     <requiredProperty key="theme">
       <defaultValue>my-theme</defaultValue>
@@ -35,8 +35,6 @@
         <include>LICENSE.md</include>
         <include>README.md</include>
         <include>.gitignore</include>
-        <include>package.json</include>
-        <include>package-lock.json</include>
         <include>webpack.config.js</include>
       </includes>
     </fileSet>
