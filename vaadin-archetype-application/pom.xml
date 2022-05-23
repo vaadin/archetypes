@@ -28,6 +28,11 @@
         <system>GitHub Issues</system>
         <url>https://github.com/vaadin/archetypes/issues</url>
     </issueManagement>
+    
+    <properties>
+        <!-- Load the snapshot dependency for testing -->
+        <archetype.test.settingsFile>${project.parent.basedir}/test-settings.xml</archetype.test.settingsFile>
+    </properties>
 
     <build>
         <extensions>
