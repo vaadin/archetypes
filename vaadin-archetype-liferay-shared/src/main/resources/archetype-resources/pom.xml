@@ -127,6 +127,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
                 <configuration>
                     <!-- static files should contain vaadin-portlet, flow-client and all build files generated in VAADIN/ -->
                     <packagingIncludes>WEB-INF/classes/**/*.class,WEB-INF/*.xml,WEB-INF/lib/flow-client*.jar,WEB-INF/lib/vaadin-portlet*.jar,VAADIN/
