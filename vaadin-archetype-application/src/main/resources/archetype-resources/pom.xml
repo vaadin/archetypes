@@ -81,11 +81,28 @@
     <build>
         <defaultGoal>jetty:run</defaultGoal>
         <plugins>
-            <!-- We use jetty plugin, replace it with your favourite developing servlet container -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.36.v20210114</version>
+                <version>10.0.11</version>
+                <configuration>
+                    <!--
+                    Configures automatic reload of Jetty server
+                    (with 2 second timeout) when new classes are compiled 
+                    (e.g. by IDEs).
+                    Should be disabeld when using a proper live reload system,
+                    such as JRebel.
+                    If using IntelliJ IDEA with autocompilation, this
+                    might cause lots of unnecessary compilations in the
+                    background. Consider using "0" and trigger restart manually
+                    by hitting enter.
+                    -->
+                    <scan>2</scan>
+                    <!-- Use war output directory to get the webpack files -->
+                    <webAppConfig>
+                        <allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
+                    </webAppConfig>
+                </configuration>
             </plugin>
 
             <!--
