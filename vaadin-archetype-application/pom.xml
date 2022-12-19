@@ -13,7 +13,7 @@
     <artifactId>vaadin-archetype-application</artifactId>
     <packaging>maven-archetype</packaging>
 
-    <name>Project base for Vaadin Flow applications (non-LTS version)</name>
+    <name>Project base for Vaadin Flow applications</name>
     <description>This archetype creates a Vaadin Flow application for basic
         servlet container and can be used as a project base.
     </description>
