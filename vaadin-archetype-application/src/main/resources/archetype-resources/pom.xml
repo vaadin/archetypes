@@ -69,10 +69,6 @@
                     by hitting enter.
                     -->
                     <scan>2</scan>
-                    <!-- Use war output directory to get the webpack files -->
-                    <webAppConfig>
-                        <allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
-                    </webAppConfig>
                 </configuration>
             </plugin>
 
