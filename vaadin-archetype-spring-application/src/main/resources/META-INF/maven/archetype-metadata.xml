@@ -28,7 +28,7 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
-      <directory>frontend/themes</directory>
+      <directory>src/main/frontend/themes</directory>
       <includes>
         <include>**/*.css</include>
         <include>**/*.json</include>
