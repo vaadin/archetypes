@@ -21,7 +21,7 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
-      <directory>frontend</directory>
+      <directory>src/main/frontend</directory>
       <includes>
         <include>**/*</include>
       </includes>
