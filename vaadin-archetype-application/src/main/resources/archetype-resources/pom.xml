@@ -85,5 +85,19 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>development</id>
+            <dependencies>
+                <!-- Include development dependencies, non-optional needed  in certain test setups -->
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>vaadin-dev</artifactId>
+                    <optional>false</optional>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
     
 </project>
