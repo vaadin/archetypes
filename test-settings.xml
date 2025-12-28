@@ -4,7 +4,9 @@
     <profiles>
         <profile>
             <id>test</id>
-            <activeByDefault>false</activeByDefault>
+            <activation>
+                <activeByDefault></activeByDefault>
+            </activation>
             <repositories>
                 <repository>
                     <id>central</id>
