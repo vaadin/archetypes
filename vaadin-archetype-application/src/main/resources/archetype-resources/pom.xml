@@ -59,8 +59,20 @@
         <defaultGoal>jetty:run</defaultGoal>
         <plugins>
             <plugin>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-maven-plugin</artifactId>
+                <version>\${vaadin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-frontend</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.eclipse.jetty.ee11</groupId>
-                <artifactId>jetty-ee11-maven-plugin/artifactId>
+                <artifactId>jetty-ee11-maven-plugin</artifactId>
                 <version>12.1.4</version>
                 <configuration>
                     <!--
