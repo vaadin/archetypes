@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <vaadin.version>${version}</vaadin.version>
+        <vaadin.version>${project.version}</vaadin.version>
     </properties>
     <name>vaadin-archetypes</name>
     <url>http://vaadin.com</url>
