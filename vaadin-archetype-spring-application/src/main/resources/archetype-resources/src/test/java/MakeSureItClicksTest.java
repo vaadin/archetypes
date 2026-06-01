@@ -5,22 +5,20 @@ package ${package};
 
 import ${package}.views.MainView;
 import com.vaadin.browserless.BrowserlessUIContext;
-import com.vaadin.browserless.SpringBrowserlessApplicationContext;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Import;
 
 @SpringBootTest
+@Import(TestConfig.class)
 public class MakeSureItClicksTest {
 
     @Test
-    void clickAndVerifyParagraph(ApplicationContext context) {
-        try(var app = SpringBrowserlessApplicationContext.create(context, Application.class)) {
-            BrowserlessUIContext uiContext = app.newUser().newWindow();
-            uiContext.navigate(MainView.class);
-            uiContext.findButton().withText("Click me").click();
-            uiContext.findParagraph().withText("Clicked!").ensureComponentIsUsable();
-        }
+    void clickAndVerifyParagraph(@Autowired BrowserlessUIContext uiContext) {
+        uiContext.navigate(MainView.class);
+        uiContext.findButton().withText("Click me").click();
+        uiContext.findParagraph().withText("Clicked!").ensureComponentIsUsable();
     }
 
 }
