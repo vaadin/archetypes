@@ -20,4 +20,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
+      env:
+        MAVEN_ARGS: --settings ${{ github.workspace }}/test-settings.xml
       run: mvn -B verify --file pom.xml --settings test-settings.xml
