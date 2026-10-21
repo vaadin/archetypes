@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-archetypes</artifactId>
-        <version>25.2-SNAPSHOT</version>
+        <version>25.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>vaadin-archetype-spring-application</artifactId>
@@ -24,6 +24,11 @@
         <connection>https://github.com/vaadin/archetypes.git</connection>
         <developerConnection>git@github.com:vaadin/archetypes.git</developerConnection>
     </scm>
+
+    <properties>
+        <!-- Load the snapshot dependency for testing -->
+        <archetype.test.settingsFile>${project.parent.basedir}/test-settings.xml</archetype.test.settingsFile>
+    </properties>
     <issueManagement>
         <system>GitHub Issues</system>
         <url>https://github.com/vaadin/archetypes/issues</url>

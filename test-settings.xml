@@ -5,7 +5,7 @@
         <profile>
             <id>test</id>
             <activation>
-                <activeByDefault></activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <repositories>
                 <repository>

@@ -134,7 +134,9 @@ if (!jarFiles || jarFiles.length == 0) {
 def jarFile = jarFiles[0]
 log "Found JAR file: ${jarFile.name}"
 
-testServer(baseDir, ["java", "-jar", jarFile.absolutePath], "Production mode", port, maxWaitSeconds)
+// Use the JVM running this build, the java on PATH can be an older version
+def javaBin = new File(System.getProperty("java.home"), "bin/java").absolutePath
+testServer(baseDir, [javaBin, "-jar", jarFile.absolutePath], "Production mode", port, maxWaitSeconds)
 
 log "========================================"
 log "All integration tests PASSED"
